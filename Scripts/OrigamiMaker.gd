@@ -8,6 +8,8 @@ var default_crane_scene := preload("res://Scenes/Paper/Crane/Crane_1_Correct.tsc
 var current_paper: Paper = null
 var current_fold_action: FoldAction = null
 
+var progression = 0.0
+
 var left_mouse_button_pressed = false
 
 func _input(event: InputEvent) -> void:
@@ -43,13 +45,18 @@ func _process(delta: float) -> void:
 		if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and left_mouse_button_pressed:
 			left_mouse_button_pressed = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			if progression > 0 and current_paper.animation_player.current_animation != null:
+				var tween = create_tween()
+				tween.tween_method(current_paper.seek, progression, 0, .5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+				tween.play()
 		
 		if result:
 			if left_mouse_button_pressed and current_fold_action != null:
 				var selected_corner_to_mouse = mouse_position-current_fold_action.handle_position
-				var progression = selected_corner_to_mouse.dot(current_fold_action.movement.normalized())/current_fold_action.movement.length()
+				progression = selected_corner_to_mouse.dot(current_fold_action.movement.normalized())/current_fold_action.movement.length()
 				current_paper.seek(progression)
 				if progression >= 1:
+					progression = 0
 					current_paper.current_step += 1
 					current_fold_action = null
 					Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

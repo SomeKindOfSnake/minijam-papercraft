@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cih81q7obuhpw"]
+[gd_scene load_steps=6 format=3 uid="uid://cih81q7obuhpw"]
 
-[ext_resource type="PackedScene" uid="uid://tfpppnwsaw8l" path="res://Import/Paper/Crane/Crane_1_Incorrect.glb" id="1_edddo"]
+[ext_resource type="PackedScene" uid="uid://c5so7rm5tdasb" path="res://Import/Paper/Crane/Crane_1_Incorrect.glb" id="1_edddo"]
 [ext_resource type="Script" path="res://Scripts/Paper.gd" id="2_jxpgn"]
 [ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_xmmif"]
 
@@ -14,9 +14,15 @@ animation_result = "Crane_Paper_1_Incorrect_Fold"
 switch_mesh = false
 new_fold_action_index = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p42tw"]
+cull_mode = 2
+
 [node name="Crane_1_Incorrect" instance=ExtResource("1_edddo")]
 script = ExtResource("2_jxpgn")
 fold_actions = Array[ExtResource("3_xmmif")]([SubResource("Resource_lhpvf")])
 
 [node name="Skeleton3D" parent="Crane_Armature_1_Incorrect" index="1"]
 bones/1/rotation = Quaternion(0.596847, 9.87298e-08, -7.35159e-08, 0.802355)
+
+[node name="Crane_Paper_1_Incorrect" parent="Crane_Armature_1_Incorrect/Skeleton3D" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p42tw")
