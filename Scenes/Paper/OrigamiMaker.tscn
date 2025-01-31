@@ -30,7 +30,7 @@ shadow_enabled = true
 [node name="OrigamiHolder" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.649926, 0)
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0.418827, 0.148783)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

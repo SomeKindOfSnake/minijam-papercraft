@@ -32,18 +32,25 @@ func _process(delta: float) -> void:
 			if not left_mouse_button_pressed:
 				current_fold_action = current_paper.get_closest_fold_action(mouse_position)
 				current_paper.hide_all_handles()
-				(current_paper.get_node(current_fold_action.handle_path) as Node3D).visible = true
+				if current_fold_action != null:
+					(current_paper.get_node(current_fold_action.handle_path) as Node3D).visible = true
 		
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not left_mouse_button_pressed:
 			left_mouse_button_pressed = true
-			current_paper.select_animation(current_fold_action.animation_result)
-			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+			if current_fold_action != null:
+				current_paper.select_animation(current_fold_action.animation_result)
+				Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and left_mouse_button_pressed:
 			left_mouse_button_pressed = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 		if result:
-			if left_mouse_button_pressed:
+			if left_mouse_button_pressed and current_fold_action != null:
 				var selected_corner_to_mouse = mouse_position-current_fold_action.handle_position
 				var progression = selected_corner_to_mouse.dot(current_fold_action.movement.normalized())/current_fold_action.movement.length()
 				current_paper.seek(progression)
+				if progression >= 1:
+					current_paper.current_step += 1
+					current_fold_action = null
+					Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+					current_paper.hide_all_handles()

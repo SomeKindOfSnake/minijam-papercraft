@@ -1,29 +1,69 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjfjjhtdovpg6"]
+[gd_scene load_steps=12 format=3 uid="uid://bjfjjhtdovpg6"]
 
 [ext_resource type="Script" path="res://Scripts/Paper.gd" id="1_w4te2"]
-[ext_resource type="PackedScene" uid="uid://3s65kroeii3k" path="res://Import/Paper/Crane/Crane_1_Correct.glb" id="2_m4eb5"]
+[ext_resource type="PackedScene" uid="uid://vp24jxgmgabc" path="res://Import/Paper/Crane/Crane_1_Correct.glb" id="2_m4eb5"]
 [ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_fwais"]
+[ext_resource type="PackedScene" uid="uid://cih81q7obuhpw" path="res://Scenes/Paper/Crane/Crane_1_Incorrect.tscn" id="4_7jj5c"]
 
-[sub_resource type="Resource" id="Resource_5vy1k"]
+[sub_resource type="Resource" id="Resource_u68gl"]
 script = ExtResource("3_fwais")
-handle_position = Vector3(0.216, 0, -0.216)
+available_step = 0
+handle_position = Vector3(0.108, 0, -0.108)
 handle_path = "Crane_Armature_1_Correct/Skeleton3D/Crane_Corner_1_Correct"
-movement = Vector3(-0.432, 0, 0.432)
+movement = Vector3(-0.216, 0, 0.216)
 animation_result = "Crane_Paper_1_Correct_Fold"
 switch_mesh = false
+new_fold_action_index = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fewos"]
+[sub_resource type="Resource" id="Resource_hrkvb"]
+script = ExtResource("3_fwais")
+available_step = 0
+handle_position = Vector3(0, 0, -0.108)
+handle_path = "Crane_Edge_1_Incorrect_A"
+movement = Vector3(0, 0, 0.216)
+animation_result = ""
+switch_mesh = true
+new_mesh = ExtResource("4_7jj5c")
+new_fold_action_index = 0
+
+[sub_resource type="Resource" id="Resource_fbhd1"]
+script = ExtResource("3_fwais")
+available_step = 1
+handle_position = Vector3(-0.108, 0, -0.108)
+handle_path = "Crane_Armature_1_Correct/Crane_Crease_1_Correct"
+movement = Vector3(0.216, 0, 0.216)
+animation_result = "Crane_Paper_1_Correct_Creased"
+switch_mesh = false
+new_fold_action_index = 0
+
+[sub_resource type="Resource" id="Resource_bbpoy"]
+script = ExtResource("3_fwais")
+available_step = 2
+handle_position = Vector3(-0.108, 0, 0.108)
+handle_path = "Crane_Armature_1_Correct/Skeleton3D/Crane_Corner_1_Correct"
+movement = Vector3(0.216, 0, -0.216)
+animation_result = "Crane_Paper_1_Correct_Finish"
+switch_mesh = false
+new_fold_action_index = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1rfc"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aa53w"]
 albedo_color = Color(1, 0, 1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fxvv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rkcko"]
 albedo_color = Color(0, 1, 1, 1)
 
 [node name="Crane_1_Correct" instance=ExtResource("2_m4eb5")]
 script = ExtResource("1_w4te2")
-fold_actions = Array[ExtResource("3_fwais")]([SubResource("Resource_5vy1k")])
+fold_actions = Array[ExtResource("3_fwais")]([SubResource("Resource_u68gl"), SubResource("Resource_hrkvb"), SubResource("Resource_fbhd1"), SubResource("Resource_bbpoy")])
 
 [node name="Crane_Crease_1_Correct" parent="Crane_Armature_1_Correct" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_fewos")
+surface_material_override/0 = SubResource("StandardMaterial3D_v1rfc")
 
 [node name="Crane_Corner_1_Correct" parent="Crane_Armature_1_Correct/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_4fxvv")
+surface_material_override/0 = SubResource("StandardMaterial3D_aa53w")
+
+[node name="Crane_Edge_1_Incorrect_A" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_rkcko")
