@@ -7,4 +7,5 @@ class_name FoldAction extends Resource
 @export var animation_result: String
 @export var switch_mesh: bool
 @export var new_mesh: PackedScene
+@export var switch_on_click: bool
 @export var new_fold_action_index: int

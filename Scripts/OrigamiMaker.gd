@@ -40,6 +40,13 @@ func _process(delta: float) -> void:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not left_mouse_button_pressed:
 			left_mouse_button_pressed = true
 			if current_fold_action != null:
+				
+				if current_fold_action.switch_mesh and current_fold_action.switch_on_click:
+					current_paper.queue_free()
+					current_paper = current_fold_action.new_mesh.instantiate()
+					origami_holder.add_child(current_paper)
+					current_fold_action = current_paper.fold_actions[current_fold_action.new_fold_action_index]
+				
 				current_paper.select_animation(current_fold_action.animation_result)
 				Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and left_mouse_button_pressed:
@@ -58,6 +65,13 @@ func _process(delta: float) -> void:
 				if progression >= 1:
 					progression = 0
 					current_paper.current_step += 1
+					
+					# if we need to switch at the end
+					if current_fold_action.switch_mesh and not current_fold_action.switch_on_click:
+						current_paper.queue_free()
+						current_paper = current_fold_action.new_mesh.instantiate()
+						origami_holder.add_child(current_paper)
+					
 					current_fold_action = null
 					Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 					current_paper.hide_all_handles()
