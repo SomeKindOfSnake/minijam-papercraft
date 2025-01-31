@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://sn580aqpdk8d"]
+
+[ext_resource type="Script" path="res://Scripts/PhoneNotification.gd" id="1_j1832"]
+[ext_resource type="Texture2D" uid="uid://b6mkyu7kef1hu" path="res://PhoneNotification.png" id="2_4apan"]
+[ext_resource type="FontFile" uid="uid://c53lsycokhfbr" path="res://BAHNSCHRIFT.TTF" id="3_gsjee"]
+
+[node name="PhoneNotification" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_j1832")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_4apan")
+region_rect = Rect2(0, 0, 1000, 1000)
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_gsjee")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center][/center]"
+fit_content = true
