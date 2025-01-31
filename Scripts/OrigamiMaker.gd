@@ -72,6 +72,9 @@ func _process(delta: float) -> void:
 						current_paper = current_fold_action.new_mesh.instantiate()
 						origami_holder.add_child(current_paper)
 					
+					if current_fold_action.loop_after:
+						current_paper.play_animation(current_fold_action.animation_loop_after)
+					
 					current_fold_action = null
 					Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 					current_paper.hide_all_handles()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6dwojgmji5iq"]
+[gd_scene load_steps=7 format=3 uid="uid://b6dwojgmji5iq"]
 
 [ext_resource type="PackedScene" uid="uid://5mlw52a4wjnm" path="res://Import/Paper/Crane/Crane_2_Correct.glb" id="1_ojpgy"]
 [ext_resource type="Script" path="res://Scripts/Paper.gd" id="2_8vtpl"]
@@ -11,6 +11,8 @@ handle_position = Vector3(0.108, 0, 0.108)
 handle_path = "Crane_Armature_2_Correct/Skeleton3D/Crane_Corner_2_Correct"
 movement = Vector3(-0.216, 0, -0.216)
 animation_result = "Crane_Paper_2_Correct_Fold"
+loop_after = false
+animation_loop_after = ""
 switch_mesh = false
 switch_on_click = false
 new_fold_action_index = 0
@@ -22,6 +24,8 @@ handle_position = Vector3(0.108, 0, -0.108)
 handle_path = "Crane_Armature_2_Correct/Crane_CreaseCorner_2_Correct"
 movement = Vector3(-0.216, 0, 0.216)
 animation_result = "Crane_Paper_2_Correct_Creased"
+loop_after = false
+animation_loop_after = ""
 switch_mesh = false
 switch_on_click = false
 new_fold_action_index = 0
@@ -33,12 +37,11 @@ handle_position = Vector3(-0.108, 0, -0.108)
 handle_path = "Crane_Armature_2_Correct/Skeleton3D/Crane_Corner_2_Correct"
 movement = Vector3(0.216, 0, 0.216)
 animation_result = "Crane_Paper_2_Correct_Finish"
+loop_after = false
+animation_loop_after = ""
 switch_mesh = false
 switch_on_click = false
 new_fold_action_index = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htova"]
-cull_mode = 2
 
 [node name="Crane_2_Correct" instance=ExtResource("1_ojpgy")]
 script = ExtResource("2_8vtpl")
@@ -46,6 +49,3 @@ fold_actions = Array[ExtResource("3_73owv")]([SubResource("Resource_v8tu6"), Sub
 
 [node name="Skeleton3D" parent="Crane_Armature_2_Correct" index="3"]
 bones/1/rotation = Quaternion(0.270598, 0.653282, 0.653281, -0.270598)
-
-[node name="Crane_Paper_2_Correct" parent="Crane_Armature_2_Correct/Skeleton3D" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_htova")
