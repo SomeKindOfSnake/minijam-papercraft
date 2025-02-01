@@ -3,7 +3,8 @@ class_name OrigamiMaker extends Node3D
 var default_crane_scene := preload("res://Scenes/Paper/Crane/Crane_1_Correct.tscn") as PackedScene
 
 @onready var origami_holder := $OrigamiHolder as Node3D
-@onready var camera := $Camera3D as Camera3D
+
+@export var camera: Camera3D
 
 var current_paper: Paper = null
 var current_fold_action: FoldAction = null
@@ -12,10 +13,9 @@ var progression = 0.0
 
 var left_mouse_button_pressed = false
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		current_paper = default_crane_scene.instantiate() as Paper
-		origami_holder.add_child(current_paper)
+func start_crane() -> void:
+	current_paper = default_crane_scene.instantiate() as Paper
+	origami_holder.add_child(current_paper)
 
 func _process(delta: float) -> void:
 	if origami_holder.get_child_count() > 0:

@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://50wa2gs7vtht"]
+
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_2w1m2"]
+[ext_resource type="PackedScene" uid="uid://bj42mfntlgc3n" path="res://Scenes/Paper/OrigamiMaker.tscn" id="1_pletw"]
+[ext_resource type="PackedScene" uid="uid://cxjmb8qdf32tw" path="res://Scenes/Phone.tscn" id="2_1t0cd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_462j2"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_0p0gi"]
+sky_material = SubResource("ProceduralSkyMaterial_462j2")
+
+[sub_resource type="Environment" id="Environment_0khmn"]
+background_mode = 2
+sky = SubResource("Sky_0p0gi")
+tonemap_mode = 2
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_2w1m2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0khmn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="OrigamiMaker" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_pletw")]
+camera = NodePath("../Camera3D")
+
+[node name="phone" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_1t0cd")]
+transform = Transform3D(0.910409, 0, -0.413708, 0, 1, 0, 0.413708, 0, 0.910409, 2.20804, 0, -2.82122)
+camera = NodePath("../Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.496353, 0.868121, 0, -0.868121, 0.496353, 0, 4.57169, 2.05736)
