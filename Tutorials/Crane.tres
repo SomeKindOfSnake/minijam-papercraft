@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TutorialStepsResource" load_steps=8 format=3 uid="uid://co1j44wxyvscy"]
+[gd_resource type="Resource" script_class="TutorialStepsResource" load_steps=14 format=3 uid="uid://co1j44wxyvscy"]
 
 [ext_resource type="Script" path="res://Scripts/Resources/TutorialStepsResource.gd" id="1_y3dxs"]
 [ext_resource type="Texture2D" uid="uid://cfljlkhohs1aj" path="res://Textures/Tutorial/Crane/000.png" id="2_kvrl2"]
@@ -7,7 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://8dfcq17rukjs" path="res://Textures/Tutorial/Crane/003.png" id="5_ycc3s"]
 [ext_resource type="Texture2D" uid="uid://ctrq584q4gdj2" path="res://Textures/Tutorial/Crane/004.png" id="6_t3oce"]
 [ext_resource type="Texture2D" uid="uid://blhp81uvld8q3" path="res://Textures/Tutorial/Crane/005.png" id="7_qh5yc"]
+[ext_resource type="Texture2D" uid="uid://wucq7ecdlsvn" path="res://Textures/Tutorial/Crane/006.png" id="8_u5rp7"]
+[ext_resource type="Texture2D" uid="uid://c84syegdtwwa3" path="res://Textures/Tutorial/Crane/007.png" id="9_8u786"]
+[ext_resource type="Texture2D" uid="uid://dc1scv1e46bs2" path="res://Textures/Tutorial/Crane/008.png" id="10_5wtm1"]
+[ext_resource type="Texture2D" uid="uid://bmadac8s1xsai" path="res://Textures/Tutorial/Crane/009.png" id="11_xgr2b"]
+[ext_resource type="Texture2D" uid="uid://w6qbc7tp22ek" path="res://Textures/Tutorial/Crane/010.png" id="12_hh1ov"]
+[ext_resource type="Texture2D" uid="uid://bdjgc7b1hcyq8" path="res://Textures/Tutorial/Crane/011.png" id="13_ky8vi"]
 
 [resource]
 script = ExtResource("1_y3dxs")
-steps = Array[Texture2D]([ExtResource("2_kvrl2"), ExtResource("3_l70w0"), ExtResource("4_c5fxi"), ExtResource("5_ycc3s"), ExtResource("6_t3oce"), ExtResource("7_qh5yc"), ExtResource("2_kvrl2"), ExtResource("6_t3oce"), ExtResource("2_kvrl2"), ExtResource("7_qh5yc")])
+steps = Array[Texture2D]([ExtResource("2_kvrl2"), ExtResource("3_l70w0"), ExtResource("4_c5fxi"), ExtResource("5_ycc3s"), ExtResource("6_t3oce"), ExtResource("7_qh5yc"), ExtResource("8_u5rp7"), ExtResource("9_8u786"), ExtResource("10_5wtm1"), ExtResource("11_xgr2b"), ExtResource("12_hh1ov"), ExtResource("13_ky8vi"), null])

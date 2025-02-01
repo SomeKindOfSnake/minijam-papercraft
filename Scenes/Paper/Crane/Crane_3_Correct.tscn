@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ens368717cn1"]
+[gd_scene load_steps=9 format=3 uid="uid://ens368717cn1"]
 
 [ext_resource type="PackedScene" uid="uid://bfduthtkl7fdn" path="res://Import/Paper/Crane/Crane_3_Correct.glb" id="1_gy7oj"]
 [ext_resource type="Script" path="res://Scripts/Paper.gd" id="2_3e6kn"]
 [ext_resource type="Material" uid="uid://bl50o6djsw78p" path="res://Materials/Paper/Paper_01.tres" id="3_lpye6"]
 [ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_y36iu"]
+[ext_resource type="PackedScene" uid="uid://do043h0mdaybu" path="res://Scenes/Paper/Crane/Crane_4_Correct.tscn" id="4_7slbt"]
 
 [sub_resource type="Resource" id="Resource_wtkav"]
 script = ExtResource("3_y36iu")
@@ -25,7 +26,7 @@ script = ExtResource("3_y36iu")
 auto_play = false
 available_step = 1
 handle_position = Vector3(0, 0, -1)
-handle_path = ""
+handle_path = "Crane_Armature_3_Correct/Crane_Crease_3_Correct"
 movement = Vector3(0, 0, 2)
 animation_result = "Crane_Paper_3_Correct_Creased"
 loop_after = false
@@ -46,6 +47,7 @@ animation_result = "Crane_Paper_3_Correct_Finish"
 loop_after = false
 animation_loop_after = ""
 switch_mesh = true
+new_mesh = ExtResource("4_7slbt")
 switch_on_click = false
 new_fold_action_index = 0
 increment_tutorial_step = true
@@ -53,13 +55,12 @@ increment_tutorial_step = true
 [node name="Crane_3_Correct" node_paths=PackedStringArray("paper_mesh", "rune") instance=ExtResource("1_gy7oj")]
 script = ExtResource("2_3e6kn")
 paper_mesh = NodePath("Crane_Armature_3_Correct/Skeleton3D/Crane_Paper_3_Correct")
-fold_actions = Array[ExtResource("3_y36iu")]([SubResource("Resource_wtkav"), SubResource("Resource_qwqmw"), SubResource("Resource_xj2fa"), null])
+fold_actions = Array[ExtResource("3_y36iu")]([SubResource("Resource_wtkav"), SubResource("Resource_qwqmw"), SubResource("Resource_xj2fa")])
 rune = NodePath("Crane_Armature_3_Correct/Skeleton3D/Marker")
 
 [node name="Skeleton3D" parent="Crane_Armature_3_Correct" index="1"]
 bones/0/rotation = Quaternion(-3.55271e-15, -1.34276e-07, 1, 0)
-bones/1/position = Vector3(-8.77104e-05, -0.00523439, 6.39511e-10)
-bones/1/rotation = Quaternion(-0.68109, -0.190042, 0.68109, -0.190042)
+bones/1/position = Vector3(9.9956e-24, -0.00999999, 1.66533e-16)
 
 [node name="Crane_Paper_3_Correct" parent="Crane_Armature_3_Correct/Skeleton3D" index="1"]
 surface_material_override/0 = ExtResource("3_lpye6")

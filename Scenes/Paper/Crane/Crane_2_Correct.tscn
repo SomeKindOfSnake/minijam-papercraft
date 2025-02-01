@@ -72,6 +72,9 @@ script = ExtResource("2_8vtpl")
 paper_mesh = NodePath("Crane_Armature_2_Correct/Skeleton3D/Crane_Paper_2_Correct")
 fold_actions = Array[ExtResource("3_73owv")]([SubResource("Resource_v8tu6"), SubResource("Resource_ko6u7"), SubResource("Resource_mnvsu"), SubResource("Resource_x2jrs")])
 
+[node name="Crane_Crease_2_Correct" parent="Crane_Armature_2_Correct" index="0"]
+visible = false
+
 [node name="Skeleton3D" parent="Crane_Armature_2_Correct" index="3"]
 bones/1/rotation = Quaternion(0.270598, 0.653281, 0.653282, -0.270598)
 
