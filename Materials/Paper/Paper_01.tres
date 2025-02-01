@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://bl50o6djsw78p"]
+
+[ext_resource type="Shader" uid="uid://dgkc23y1mw7n0" path="res://Materials/Paper/PaperShader.tres" id="1_nbinm"]
+[ext_resource type="Texture2D" uid="uid://dv6kh2cadqfxf" path="res://Textures/Paper/Paper1/Paper_Material_BaseColor_sRGB.png" id="2_7y6wg"]
+[ext_resource type="Texture2D" uid="uid://dom1yg5hk1p65" path="res://Textures/Paper/border_mask.png" id="3_duuxh"]
+[ext_resource type="Texture2D" uid="uid://cqumd7bx3dv06" path="res://Textures/Paper/Paper1/Paper_Material_Metallic_Raw.png" id="3_m86q4"]
+[ext_resource type="Texture2D" uid="uid://dfqo7ok43d4dv" path="res://Textures/Paper/Paper1/Paper_Material_Normal_Raw.png" id="4_yelx2"]
+[ext_resource type="Texture2D" uid="uid://dnu4vl6rduumd" path="res://Textures/Paper/Paper1/Paper_Material_Roughness_Raw.png" id="5_famhr"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_nbinm")
+shader_parameter/Edges = 0.3
+shader_parameter/ColorParameter = Color(0.5, 0.13, 0.13, 1)
+shader_parameter/BorderMask = ExtResource("3_duuxh")
+shader_parameter/Albedo = ExtResource("2_7y6wg")
+shader_parameter/Metallic = ExtResource("3_m86q4")
+shader_parameter/Roughness = ExtResource("5_famhr")
+shader_parameter/Normal = ExtResource("4_yelx2")

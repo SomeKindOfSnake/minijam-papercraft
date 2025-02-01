@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bldrk83e6vqt3"]
+
+[ext_resource type="Material" uid="uid://bl50o6djsw78p" path="res://Materials/Paper/Paper_01.tres" id="1_mhjdq"]
+[ext_resource type="Material" uid="uid://bf5a8a8vd4scg" path="res://Materials/Paper/Paper_02.tres" id="1_yco5q"]
+[ext_resource type="Material" uid="uid://bfdo4uq81suo0" path="res://Materials/Paper/Paper_03.tres" id="3_sve0f"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ouy3j"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.269054, 0.963125, 0, -0.963125, 0.269054, 0.619636, 3.54848, 3.85237)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("1_mhjdq")
+mesh = SubResource("PlaneMesh_ouy3j")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.15127)
+material_override = ExtResource("1_yco5q")
+mesh = SubResource("PlaneMesh_ouy3j")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999958, -0.00350001, 0.00843822, 0.00340953, 0.999937, 0.0107116, -0.00847518, -0.0106824, 0.999907, 0.00598264, 0.00428128, 4.33644)
+material_override = ExtResource("3_sve0f")
+mesh = SubResource("PlaneMesh_ouy3j")
