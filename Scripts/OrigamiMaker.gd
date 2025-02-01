@@ -1,12 +1,12 @@
 class_name OrigamiMaker extends Node3D
 
+signal next_step()
+
 const unit_scale = .54
 
 var default_crane_scene := preload("res://Scenes/Paper/Crane/Crane_1_Correct.tscn") as PackedScene
 
 @onready var origami_holder := $OrigamiHolder as Node3D
-
-@export var camera: Camera3D
 
 var current_paper: Paper = null
 var current_fold_action: FoldAction = null
@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 	if origami_holder.get_child_count() > 0:
 		var space_state = get_world_3d().direct_space_state
 		var mouse_position_on_screen = get_viewport().get_mouse_position()
+		var camera = get_viewport().get_camera_3d()
 		var origin = camera.project_ray_origin(mouse_position_on_screen)
 		var end = origin + camera.project_ray_normal(mouse_position_on_screen) * 1000
 		var query = PhysicsRayQueryParameters3D.create(origin, end)
@@ -70,6 +71,9 @@ func _process(delta: float) -> void:
 				if progression >= 1:
 					progression = 0
 					current_paper.current_step += 1
+					
+					if current_fold_action.increment_tutorial_step:
+						next_step.emit()
 					
 					# if we need to switch at the end
 					if current_fold_action.switch_mesh and not current_fold_action.switch_on_click:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://50wa2gs7vtht"]
+[gd_scene load_steps=8 format=3 uid="uid://50wa2gs7vtht"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_2w1m2"]
 [ext_resource type="PackedScene" uid="uid://bj42mfntlgc3n" path="res://Scenes/Paper/OrigamiMaker.tscn" id="1_pletw"]
 [ext_resource type="PackedScene" uid="uid://cxjmb8qdf32tw" path="res://Scenes/Phone.tscn" id="2_1t0cd"]
+[ext_resource type="PackedScene" uid="uid://cdxv5llr2ailp" path="res://Scenes/Crystal.tscn" id="4_podbn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_462j2"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -25,12 +26,15 @@ environment = SubResource("Environment_0khmn")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.571444, 0.773632, 0.27376, 0.187589, -0.447904, 0.874181, 0.798913, -0.448191, -0.401077, 0, 0, 0)
 
-[node name="OrigamiMaker" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_pletw")]
-camera = NodePath("../Camera3D")
+[node name="OrigamiMaker" parent="." instance=ExtResource("1_pletw")]
 
-[node name="phone" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_1t0cd")]
-transform = Transform3D(0.364164, 0, -0.165483, 0, 0.4, 0, 0.165483, 0, 0.364164, 1.46334, 0, -0.789823)
-camera = NodePath("../Camera3D")
+[node name="phone" parent="." instance=ExtResource("2_1t0cd")]
+transform = Transform3D(0.380276, 0, -0.124058, 0, 0.4, 0, 0.124058, 0, 0.380276, 1.30897, 0, -0.45012)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.223914, 0.974609, 0, -0.974609, 0.223914, 0, 1.83654, 0.483001)
+transform = Transform3D(1, 0, 0, 0, 0.223914, 0.974609, 0, -0.974609, 0.223914, 0, 1.40974, 0.384945)
+
+[node name="Crystal" parent="." instance=ExtResource("4_podbn")]
+transform = Transform3D(1, 0, 0, 0, 0.826835, 0.562444, 0, -0.562444, 0.826835, 0, 0.604184, -0.852017)
+
+[connection signal="next_step" from="OrigamiMaker" to="." method="on_next_step"]

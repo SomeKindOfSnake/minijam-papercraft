@@ -5,7 +5,6 @@ signal mouse_moved_on_phone(mouse_position: Vector2)
 @onready var collision_shape := $CollisionShape3D as CollisionShape3D
 
 @export var sub_viewport: SubViewport
-@export var camera: Camera3D
 
 var previous_mouse_on_phone_position = Vector2.ZERO
 var mouse_on_phone_position = Vector2.ZERO
@@ -13,6 +12,7 @@ var mouse_on_phone_position = Vector2.ZERO
 func _process(delta: float) -> void:
 	var space_state = get_world_3d().direct_space_state
 	var mouse_position_on_screen = get_viewport().get_mouse_position()
+	var camera = get_viewport().get_camera_3d()
 	var origin = camera.project_ray_origin(mouse_position_on_screen)
 	var end = origin + camera.project_ray_normal(mouse_position_on_screen) * 1000
 	var query = PhysicsRayQueryParameters3D.create(origin, end, int(1 << 1))

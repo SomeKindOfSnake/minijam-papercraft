@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://d04iiiwdde78l"]
+[gd_scene load_steps=4 format=3 uid="uid://d04iiiwdde78l"]
+
+[ext_resource type="Script" path="res://Scripts/Tutorial.gd" id="1_a0bfk"]
+[ext_resource type="PackedScene" uid="uid://cek7oextdfshm" path="res://Scenes/TutorialMenu.tscn" id="1_jp67d"]
+[ext_resource type="PackedScene" uid="uid://d24pm0qa52q63" path="res://Scenes/TutorialSteps.tscn" id="3_s2rck"]
 
 [node name="Tutorial" type="Control"]
 layout_mode = 3
@@ -7,3 +11,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_a0bfk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TutorialMenu" parent="." instance=ExtResource("1_jp67d")]
+layout_mode = 1
+
+[node name="TutorialSteps" parent="." instance=ExtResource("3_s2rck")]
+visible = false
+layout_mode = 1

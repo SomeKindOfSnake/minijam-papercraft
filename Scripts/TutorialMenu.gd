@@ -1,4 +1,4 @@
-extends Control
+class_name TutorialMenu extends Control
 
 var left_button_pressed = false
 var last_mouse_position = Vector2(-1, -1)

@@ -1,9 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://cek7oextdfshm"]
+[gd_scene load_steps=8 format=3 uid="uid://cek7oextdfshm"]
 
 [ext_resource type="Script" path="res://Scripts/TutorialMenu.gd" id="1_dwvps"]
 [ext_resource type="Texture2D" uid="uid://rs4why2c5yo1" path="res://PhoneButton.png" id="2_w4nhs"]
 [ext_resource type="Texture2D" uid="uid://comt31kf0y80w" path="res://howto-origami-crane-00-1200x900.png" id="3_saf15"]
 [ext_resource type="Script" path="res://Scripts/PhoneButton.gd" id="4_xdqe7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fn6vj"]
+texture = ExtResource("2_w4nhs")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y8gi5"]
+texture = ExtResource("2_w4nhs")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7owd8"]
 texture = ExtResource("2_w4nhs")
@@ -11,6 +27,7 @@ texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
+modulate_color = Color(0, 0, 0, 1)
 
 [node name="TutorialMenu" type="Control"]
 layout_mode = 3
@@ -34,7 +51,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxTexture_7owd8")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fn6vj")
 text = "Crane tutorial"
 icon = ExtResource("3_saf15")
 script = ExtResource("4_xdqe7")
@@ -43,7 +60,7 @@ script = ExtResource("4_xdqe7")
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxTexture_7owd8")
+theme_override_styles/normal = SubResource("StyleBoxTexture_y8gi5")
 text = "Fox tutorial"
 icon = ExtResource("3_saf15")
 script = ExtResource("4_xdqe7")

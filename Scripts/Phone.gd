@@ -1,8 +1,10 @@
-extends Node3D
+class_name Phone extends Node3D
 
 @onready var static_body_3d := $StaticBody3D as PhoneInputHandler
+@onready var tutorial := $SubViewport/Tutorial as Tutorial
 
-@export var camera: Camera3D
+func start_tutorial(button_name: String):
+	tutorial.start_tutorial(button_name)
 
-func _ready() -> void:
-	static_body_3d.camera = camera
+func next_step():
+	tutorial.next_step()

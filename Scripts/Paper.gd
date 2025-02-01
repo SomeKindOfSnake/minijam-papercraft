@@ -25,8 +25,7 @@ func set_material(material: ShaderMaterial):
 	paper_mesh.set_surface_override_material(0, material)
 
 func pick_random_material() -> void:
-	var new_material := paper_materials.pick_random() as ShaderMaterial
-	new_material.resource_local_to_scene = true
+	var new_material := (paper_materials.pick_random() as ShaderMaterial).duplicate()
 	new_material.set_shader_parameter("ColorParameter", Color(randf(), randf(), randf()))
 	paper_mesh.set_surface_override_material(0, new_material)
 
