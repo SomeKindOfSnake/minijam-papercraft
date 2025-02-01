@@ -17,6 +17,7 @@ var left_mouse_button_pressed = false
 
 func start_crane() -> void:
 	current_paper = default_crane_scene.instantiate() as Paper
+	current_paper.pick_random_material()
 	origami_holder.add_child(current_paper)
 
 func _process(delta: float) -> void:
@@ -44,8 +45,10 @@ func _process(delta: float) -> void:
 			if current_fold_action != null:
 				
 				if current_fold_action.switch_mesh and current_fold_action.switch_on_click:
+					var material := current_paper.get_material()
 					current_paper.queue_free()
 					current_paper = current_fold_action.new_mesh.instantiate()
+					current_paper.set_material(material)
 					origami_holder.add_child(current_paper)
 					current_fold_action = current_paper.fold_actions[current_fold_action.new_fold_action_index]
 				
@@ -70,8 +73,10 @@ func _process(delta: float) -> void:
 					
 					# if we need to switch at the end
 					if current_fold_action.switch_mesh and not current_fold_action.switch_on_click:
+						var material := current_paper.get_material()
 						current_paper.queue_free()
 						current_paper = current_fold_action.new_mesh.instantiate()
+						current_paper.set_material(material)
 						origami_holder.add_child(current_paper)
 					
 					if current_fold_action.loop_after:

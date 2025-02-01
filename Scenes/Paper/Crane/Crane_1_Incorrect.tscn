@@ -17,9 +17,11 @@ switch_mesh = false
 switch_on_click = false
 new_fold_action_index = 0
 
-[node name="Crane_1_Incorrect" instance=ExtResource("1_edddo")]
+[node name="Crane_1_Incorrect" node_paths=PackedStringArray("paper_mesh") instance=ExtResource("1_edddo")]
 script = ExtResource("2_jxpgn")
+paper_mesh = NodePath("Crane_Armature_1_Incorrect/Skeleton3D/Crane_Paper_1_Incorrect")
 fold_actions = Array[ExtResource("3_xmmif")]([SubResource("Resource_lhpvf")])
 
 [node name="Skeleton3D" parent="Crane_Armature_1_Incorrect" index="1"]
+bones/1/position = Vector3(-3.15544e-30, 0.0025, 7.63076e-37)
 bones/1/rotation = Quaternion(-0.707107, 8.54992e-08, 8.54992e-08, 0.707107)

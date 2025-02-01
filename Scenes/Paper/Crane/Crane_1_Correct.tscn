@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_fwais"]
 [ext_resource type="PackedScene" uid="uid://cih81q7obuhpw" path="res://Scenes/Paper/Crane/Crane_1_Incorrect.tscn" id="4_7jj5c"]
 [ext_resource type="PackedScene" uid="uid://b6dwojgmji5iq" path="res://Scenes/Paper/Crane/Crane_2_Correct.tscn" id="5_cyjhk"]
+[ext_resource type="Material" uid="uid://bl50o6djsw78p" path="res://Materials/Paper/Paper_01.tres" id="6_ba5di"]
 
 [sub_resource type="Resource" id="Resource_dgtox"]
 script = ExtResource("3_fwais")
@@ -60,15 +61,16 @@ new_mesh = ExtResource("5_cyjhk")
 switch_on_click = false
 new_fold_action_index = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pm7qn"]
-cull_mode = 2
-
-[node name="Crane_1_Correct" instance=ExtResource("2_m4eb5")]
+[node name="Crane_1_Correct" node_paths=PackedStringArray("paper_mesh") instance=ExtResource("2_m4eb5")]
 script = ExtResource("1_w4te2")
+paper_mesh = NodePath("Crane_Armature_1_Correct/Skeleton3D/Crane_Paper_1_Correct")
 fold_actions = Array[ExtResource("3_fwais")]([SubResource("Resource_dgtox"), SubResource("Resource_yixol"), SubResource("Resource_gh7en"), SubResource("Resource_xsypt")])
 
 [node name="Crane_Crease_1_Correct" parent="Crane_Armature_1_Correct" index="0"]
 visible = false
 
+[node name="Skeleton3D" parent="Crane_Armature_1_Correct" index="3"]
+bones/1/rotation = Quaternion(-0.653282, -0.270598, -0.270598, 0.653282)
+
 [node name="Crane_Paper_1_Correct" parent="Crane_Armature_1_Correct/Skeleton3D" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_pm7qn")
+surface_material_override/0 = ExtResource("6_ba5di")

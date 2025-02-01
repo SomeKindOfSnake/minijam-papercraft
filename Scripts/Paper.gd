@@ -2,14 +2,33 @@ class_name Paper extends Node3D
 
 const unit_scale = .54
 
+var paper_materials: Array[ShaderMaterial] = [
+	preload("res://Materials/Paper/Paper_01.tres"),
+	preload("res://Materials/Paper/Paper_02.tres"),
+	preload("res://Materials/Paper/Paper_03.tres")
+]
+
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
 
+@export var paper_mesh: MeshInstance3D
 @export var fold_actions: Array[FoldAction] = []
 
 var current_step = 0
 
 func _ready() -> void:
 	hide_all_handles()
+
+func get_material() -> ShaderMaterial:
+	return paper_mesh.get_surface_override_material(0)
+
+func set_material(material: ShaderMaterial):
+	paper_mesh.set_surface_override_material(0, material)
+
+func pick_random_material() -> void:
+	var new_material := paper_materials.pick_random() as ShaderMaterial
+	new_material.resource_local_to_scene = true
+	new_material.set_shader_parameter("ColorParameter", Color(randf(), randf(), randf()))
+	paper_mesh.set_surface_override_material(0, new_material)
 
 func seek(factor: float) -> void:
 	animation_player.seek(factor * animation_player.current_animation_length, true)
