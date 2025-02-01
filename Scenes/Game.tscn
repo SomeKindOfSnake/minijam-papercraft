@@ -26,7 +26,8 @@ environment = SubResource("Environment_0khmn")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.571444, 0.773632, 0.27376, 0.187589, -0.447904, 0.874181, 0.798913, -0.448191, -0.401077, 0, 0, 0)
 
-[node name="OrigamiMaker" parent="." instance=ExtResource("1_pletw")]
+[node name="OrigamiMaker" parent="." node_paths=PackedStringArray("crystal") instance=ExtResource("1_pletw")]
+crystal = NodePath("../Crystal")
 
 [node name="phone" parent="." instance=ExtResource("2_1t0cd")]
 transform = Transform3D(0.380276, 0, -0.124058, 0, 0.4, 0, 0.124058, 0, 0.380276, 1.30897, 0, -0.45012)

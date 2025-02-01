@@ -16,6 +16,7 @@ shader_parameter/ColorParameter = Color(0.5, 0.13, 0.13, 1)
 shader_parameter/RuneColor = Color(0.82, 0.57851, 0.0574, 1)
 shader_parameter/RuneSpeed = 0.25
 shader_parameter/RuneAmount = 1.0
+shader_parameter/PulseAmplitude = 1.0
 shader_parameter/BackColor = Color(1, 1, 1, 1)
 shader_parameter/BacksideMix = 0.49
 shader_parameter/BacksideEnable = 0.0

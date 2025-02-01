@@ -1,19 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://sn580aqpdk8d"]
 
 [ext_resource type="Script" path="res://Scripts/PhoneNotification.gd" id="1_j1832"]
-[ext_resource type="Texture2D" uid="uid://b6mkyu7kef1hu" path="res://PhoneNotification.png" id="2_4apan"]
-[ext_resource type="FontFile" uid="uid://c53lsycokhfbr" path="res://BAHNSCHRIFT.TTF" id="3_gsjee"]
+[ext_resource type="Texture2D" uid="uid://rs4why2c5yo1" path="res://PhoneButton.png" id="2_esxxg"]
+[ext_resource type="FontFile" uid="uid://bomwk4bx3cflt" path="res://BAHNSCHRIFT.TTF" id="3_gsjee"]
 
 [node name="PhoneNotification" type="Control"]
 layout_mode = 3
 anchor_left = 0.02
-anchor_top = 0.02
+anchor_top = 0.01
 anchor_right = 0.98
-anchor_bottom = 0.02
+anchor_bottom = 0.01
 grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_j1832")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 140)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -21,24 +23,42 @@ offset_bottom = 80.0
 grow_horizontal = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
-layout_mode = 2
-texture = ExtResource("2_4apan")
+modulate = Color(0.121658, 0.163407, 0.23266, 0.580392)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_esxxg")
 region_rect = Rect2(0, 0, 1000, 1000)
-patch_margin_left = 40
-patch_margin_top = 40
-patch_margin_right = 40
-patch_margin_bottom = 40
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.5
+anchor_right = 0.98
+anchor_bottom = 0.5
+offset_top = -24.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_gsjee")
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
-text = "[center][/center]"
+text = "[b]Steve[/b] says:
+[center]gsdffgsdffgsertgrtg[/center]"
 fit_content = true

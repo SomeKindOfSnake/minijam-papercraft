@@ -7,7 +7,7 @@ class_name PhoneNotification extends Control
 	set(value):
 		text = value
 		if rich_text_label != null:
-			rich_text_label.text = "[center]"+text+"[/center]"
+			rich_text_label.text = "[b]Steve[/b] says:\n[center]"+text+"[/center]"
 
 func get_notification_size() -> Vector2:
 	return margin_container.get_global_rect().size

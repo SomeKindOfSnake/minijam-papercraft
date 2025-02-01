@@ -6,6 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_lhpvf"]
 script = ExtResource("3_xmmif")
+auto_play = false
 available_step = 0
 handle_position = Vector3(0, 0, -1)
 handle_path = "Crane_Armature_1_Incorrect/Skeleton3D/Crane_Edge_1_Incorrect_B"

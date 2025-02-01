@@ -1,6 +1,15 @@
-[gd_scene load_steps=6 format=4 uid="uid://cdxv5llr2ailp"]
+[gd_scene load_steps=14 format=4 uid="uid://cdxv5llr2ailp"]
 
+[ext_resource type="AudioStream" uid="uid://dveqn7jnnaowj" path="res://SFX/CrystalPing_01.ogg" id="2_g1ocl"]
 [ext_resource type="Script" path="res://Scripts/Crystal.gd" id="2_oyfti"]
+[ext_resource type="AudioStream" uid="uid://dldldslcubseq" path="res://SFX/CrystalPing_02.ogg" id="3_5ig7x"]
+[ext_resource type="AudioStream" uid="uid://eu70fq4rjt80" path="res://SFX/CrystalPing_03.ogg" id="4_d61g8"]
+[ext_resource type="AudioStream" uid="uid://bb0k54aja24ho" path="res://SFX/CrystalPing_04.ogg" id="5_dain3"]
+[ext_resource type="AudioStream" uid="uid://drxyo36k5r065" path="res://SFX/CrystalPing_05.ogg" id="6_m3kjs"]
+[ext_resource type="AudioStream" uid="uid://c0axeg2e82f48" path="res://SFX/CrystalPing_06.ogg" id="7_jvro4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r2ypi"]
+bounce = 0.26
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhir4"]
 
@@ -37,12 +46,25 @@ shadow_mesh = SubResource("ArrayMesh_reryf")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0pj3g"]
 points = PackedVector3Array(1.21345, 1.21345, -1.21345, 0.635942, 0.635942, 0.635942, 0.635942, -0.63618, 0.635942, 0.635942, -0.63618, -0.63618, -0.63618, -0.63618, -0.63618, -0.63618, 0.635942, -0.63618, -0.63618, 0.635942, 0.635942, -1.21345, -1.21345, 1.21345)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xqes2"]
+random_pitch = 1.92
+streams_count = 6
+stream_0/stream = ExtResource("2_g1ocl")
+stream_1/stream = ExtResource("3_5ig7x")
+stream_2/stream = ExtResource("4_d61g8")
+stream_3/stream = ExtResource("5_dain3")
+stream_4/stream = ExtResource("6_m3kjs")
+stream_5/stream = ExtResource("7_jvro4")
+
 [node name="Crystal" type="RigidBody3D"]
 collision_layer = 3
 collision_mask = 3
 mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_r2ypi")
 inertia = Vector3(1, 0.1, 1)
 freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("2_oyfti")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
@@ -54,4 +76,11 @@ skeleton = NodePath("")
 transform = Transform3D(0.170956, -0.0832664, 0.0891113, 0.121939, 0.119529, -0.122245, -0.0022498, 0.15126, 0.145655, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_0pj3g")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_xqes2")
+volume_db = 71.856
+max_polyphony = 5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="." to="AudioStreamPlayer3D" method="play" unbinds=1]
 [connection signal="input_event" from="." to="." method="_on_input_event"]

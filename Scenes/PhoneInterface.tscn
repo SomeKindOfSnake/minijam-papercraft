@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxnw6xipd0sre"]
+[gd_scene load_steps=5 format=3 uid="uid://dxnw6xipd0sre"]
 
 [ext_resource type="Script" path="res://Scripts/PhoneInterface.gd" id="1_pikrn"]
+[ext_resource type="Script" path="res://Scripts/Resources/Dialogue.gd" id="2_06w2w"]
 [ext_resource type="PackedScene" uid="uid://sn580aqpdk8d" path="res://Scenes/PhoneNotification.tscn" id="2_gogw1"]
+
+[sub_resource type="Resource" id="Resource_uin42"]
+script = ExtResource("2_06w2w")
+lines = Array[String](["1,5]Hey dude! Thanks so much again for taking care of the place while I'm away.", "1,3]I will be back soon. Have fun with the home cinema!", "30,3]I know that if I tell you not to touch it, you will anyways haha", "5,2]Oh by the way..", "3,5]There are some.. origami stuff in the office..", "30,5]Please don't mess with that.. It's for... my nephew.", "1,5]Especially the crystal. Don't touch the crystal.", "-1,5]Please."])
 
 [node name="PhoneInterface" type="Control"]
 layout_mode = 3
@@ -11,6 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pikrn")
+dialogue = SubResource("Resource_uin42")
 
 [node name="PhoneNotification" parent="." instance=ExtResource("2_gogw1")]
 layout_mode = 1

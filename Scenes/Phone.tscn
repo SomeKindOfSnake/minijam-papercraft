@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxjmb8qdf32tw"]
+[gd_scene load_steps=13 format=3 uid="uid://cxjmb8qdf32tw"]
 
 [ext_resource type="PackedScene" uid="uid://diltmty36nxh0" path="res://Import/Objects/phone.glb" id="1_r1s5a"]
+[ext_resource type="PackedScene" uid="uid://dxnw6xipd0sre" path="res://Scenes/PhoneInterface.tscn" id="2_dsc7e"]
 [ext_resource type="Script" path="res://Scripts/Phone.gd" id="2_raik2"]
 [ext_resource type="PackedScene" uid="uid://d04iiiwdde78l" path="res://Scenes/Tutorial.tscn" id="3_dvhpa"]
 [ext_resource type="Script" path="res://Scripts/PhoneInputHandler.gd" id="4_351l0"]
@@ -88,6 +89,8 @@ size = Vector2i(372, 714)
 [node name="Tutorial" parent="SubViewport" index="0" node_paths=PackedStringArray("phone_inputs_handler") instance=ExtResource("3_dvhpa")]
 phone_inputs_handler = NodePath("../../StaticBody3D")
 tutorials = Array[ExtResource("4_vrl0b")]([ExtResource("5_glwo6")])
+
+[node name="PhoneInterface" parent="SubViewport" index="1" instance=ExtResource("2_dsc7e")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="2" node_paths=PackedStringArray("sub_viewport")]
 collision_layer = 2

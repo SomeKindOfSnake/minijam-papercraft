@@ -1,5 +1,6 @@
 class_name FoldAction extends Resource
 
+@export var auto_play: bool
 @export var available_step: int
 @export var handle_position: Vector3
 @export var handle_path: String
