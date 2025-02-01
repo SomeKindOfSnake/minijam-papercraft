@@ -30,8 +30,8 @@ shadow_enabled = true
 camera = NodePath("../Camera3D")
 
 [node name="phone" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_1t0cd")]
-transform = Transform3D(0.910409, 0, -0.413708, 0, 1, 0, 0.413708, 0, 0.910409, 2.20804, 0, -2.82122)
+transform = Transform3D(0.364164, 0, -0.165483, 0, 0.4, 0, 0.165483, 0, 0.364164, 1.46334, 0, -0.789823)
 camera = NodePath("../Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.496353, 0.868121, 0, -0.868121, 0.496353, 0, 4.57169, 2.05736)
+transform = Transform3D(1, 0, 0, 0, 0.223914, 0.974609, 0, -0.974609, 0.223914, 0, 1.83654, 0.483001)

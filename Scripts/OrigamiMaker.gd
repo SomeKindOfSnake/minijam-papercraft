@@ -1,5 +1,7 @@
 class_name OrigamiMaker extends Node3D
 
+const unit_scale = .54
+
 var default_crane_scene := preload("res://Scenes/Paper/Crane/Crane_1_Correct.tscn") as PackedScene
 
 @onready var origami_holder := $OrigamiHolder as Node3D
@@ -59,8 +61,8 @@ func _process(delta: float) -> void:
 		
 		if result:
 			if left_mouse_button_pressed and current_fold_action != null:
-				var selected_corner_to_mouse = mouse_position-current_fold_action.handle_position
-				progression = selected_corner_to_mouse.dot(current_fold_action.movement.normalized())/current_fold_action.movement.length()
+				var selected_corner_to_mouse = mouse_position-current_fold_action.handle_position*unit_scale
+				progression = selected_corner_to_mouse.dot(current_fold_action.movement.normalized())/(current_fold_action.movement.length()*unit_scale)
 				current_paper.seek(progression)
 				if progression >= 1:
 					progression = 0

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/OrigamiMaker.gd" id="1_fpp6h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kyhep"]
-size = Vector3(3, 0, 3)
+size = Vector3(10, 0, 10)
 
 [node name="OrigamiMaker" type="Node3D"]
 script = ExtResource("1_fpp6h")

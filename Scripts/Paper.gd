@@ -1,5 +1,7 @@
 class_name Paper extends Node3D
 
+const unit_scale = .54
+
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
 
 @export var fold_actions: Array[FoldAction] = []
@@ -26,7 +28,7 @@ func get_closest_fold_action(mouse_position: Vector3) -> FoldAction:
 	for action in fold_actions:
 		if action.available_step == current_step:
 			var node := get_node(action.handle_path) as Node3D
-			var distance = mouse_position.distance_squared_to(global_position+action.handle_position)
+			var distance = mouse_position.distance_squared_to(global_position+action.handle_position*unit_scale)
 			if distance <= min_distance:
 				min_distance = distance
 				min_action = action

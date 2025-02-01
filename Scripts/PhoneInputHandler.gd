@@ -23,8 +23,8 @@ func _process(delta: float) -> void:
 		previous_mouse_on_phone_position = mouse_on_phone_position
 		var current_mouse_on_phone_position = phone_plane.project(result.position-global_position)
 		current_mouse_on_phone_position = Vector3(global_basis.tdotx(current_mouse_on_phone_position), global_basis.tdoty(current_mouse_on_phone_position), global_basis.tdotz(current_mouse_on_phone_position))
-		current_mouse_on_phone_position.x /= (collision_shape.shape as BoxShape3D).size.x
-		current_mouse_on_phone_position.z /= (collision_shape.shape as BoxShape3D).size.z
+		current_mouse_on_phone_position.x /= (collision_shape.shape as BoxShape3D).size.x * global_basis.get_scale().x ** 2
+		current_mouse_on_phone_position.z /= (collision_shape.shape as BoxShape3D).size.z * global_basis.get_scale().x ** 2
 		current_mouse_on_phone_position.x += 0.5
 		current_mouse_on_phone_position.z += 0.5
 		var current_mouse_on_phone_position_2d = Vector2(current_mouse_on_phone_position.x, current_mouse_on_phone_position.z)
