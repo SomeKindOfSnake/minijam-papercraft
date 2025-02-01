@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://brrsw08x6ppa0"]
+
+[ext_resource type="Shader" uid="uid://dgkc23y1mw7n0" path="res://Materials/Paper/PaperShader.tres" id="1_ds7a5"]
+[ext_resource type="Texture2D" uid="uid://dv6kh2cadqfxf" path="res://Textures/Paper/Paper1/Paper_Material_BaseColor_sRGB.png" id="2_d7io7"]
+[ext_resource type="Texture2D" uid="uid://dom1yg5hk1p65" path="res://Textures/Paper/border_mask.png" id="3_xanvk"]
+[ext_resource type="Texture2D" uid="uid://cqumd7bx3dv06" path="res://Textures/Paper/Paper1/Paper_Material_Metallic_Raw.png" id="4_u6trw"]
+[ext_resource type="Texture2D" uid="uid://dfqo7ok43d4dv" path="res://Textures/Paper/Paper1/Paper_Material_Normal_Raw.png" id="5_pt5w0"]
+[ext_resource type="Texture2D" uid="uid://dnu4vl6rduumd" path="res://Textures/Paper/Paper1/Paper_Material_Roughness_Raw.png" id="6_cnvqc"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ds7a5")
+shader_parameter/Edges = 0.3
+shader_parameter/ColorParameter = Color(0.5, 0.13, 0.13, 1)
+shader_parameter/BackColor = Color(1, 1, 1, 1)
+shader_parameter/BacksideMix = 0.6
+shader_parameter/BacksideEnable = 1.0
+shader_parameter/BorderMask = ExtResource("3_xanvk")
+shader_parameter/Albedo = ExtResource("2_d7io7")
+shader_parameter/Metallic = ExtResource("4_u6trw")
+shader_parameter/Roughness = ExtResource("6_cnvqc")
+shader_parameter/Normal = ExtResource("5_pt5w0")

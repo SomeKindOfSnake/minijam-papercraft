@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxrtf3sx3ut0c"]
+
+[ext_resource type="PackedScene" uid="uid://bv5g0i7jw81hl" path="res://Import/Paper/Crane/Crane_2_Incorrect.glb" id="1_4fgih"]
+
+[node name="Crane_2_Incorrect" instance=ExtResource("1_4fgih")]
