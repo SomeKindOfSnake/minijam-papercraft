@@ -8,6 +8,7 @@ var effective_scale = 1
 
 var default_crane_scene := preload("res://Scenes/Paper/Crane/Crane_1_Correct.tscn") as PackedScene
 
+@onready var game := get_tree().root.get_node("Game") as Game
 @onready var origami_holder := $OrigamiHolder as Node3D
 
 @export var crystal: Pickable
@@ -28,13 +29,26 @@ func start_crane() -> void:
 	origami_holder.add_child(current_paper)
 
 func reset() -> void:
-	current_paper.queue_free()
+	current_paper = null
+	current_fold_action = null
+	progression = 0.0
+	left_mouse_button_pressed = false
 
 func on_action_done() -> void:
 	current_paper.current_step += 1
 	
 	if current_fold_action.increment_tutorial_step:
 		next_step.emit()
+	
+	if current_fold_action.finish:
+		var material := current_paper.get_material()
+		current_paper.queue_free()
+		var finished_paper := current_fold_action.finished_paper.instantiate() as FinishedPaper
+		finished_paper.mul_scale(origami_holder.scale.x)
+		finished_paper.set_material(material)
+		game.add_finished_paper(finished_paper)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		return
 	
 	# if we need to switch at the end
 	if current_fold_action.switch_mesh and not current_fold_action.switch_on_click:

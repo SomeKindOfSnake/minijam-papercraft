@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b32lmf5i1dhv4"]
+[gd_scene load_steps=6 format=3 uid="uid://b32lmf5i1dhv4"]
 
 [ext_resource type="PackedScene" uid="uid://cyl6ht3rvvrll" path="res://Import/Paper/Crane/Crane_8_Correct.glb" id="1_thcet"]
 [ext_resource type="Script" path="res://Scripts/Paper.gd" id="2_tmcq4"]
 [ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_mbh6d"]
+[ext_resource type="PackedScene" uid="uid://b5tn14ml6qopc" path="res://Scenes/Paper/Crane/FinshedCrane.tscn" id="4_duvbj"]
 
 [sub_resource type="Resource" id="Resource_nni3m"]
 script = ExtResource("3_mbh6d")
@@ -19,9 +20,10 @@ switch_on_click = false
 new_fold_action_index = 0
 increment_tutorial_step = true
 finish = true
+finished_paper = ExtResource("4_duvbj")
 
 [node name="Crane_8_Correct" node_paths=PackedStringArray("paper_mesh") instance=ExtResource("1_thcet")]
-transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
 script = ExtResource("2_tmcq4")
 paper_mesh = NodePath("Crane_Armature_8_Correct/Skeleton3D/Crane_Paper_8_Correct")
 fold_actions = Array[ExtResource("3_mbh6d")]([SubResource("Resource_nni3m")])

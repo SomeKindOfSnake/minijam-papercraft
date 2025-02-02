@@ -1,5 +1,9 @@
 class_name Game extends Node3D
 
+signal all_placed
+
+var is_all_placed = false
+
 @onready var origami_maker := $OrigamiMaker as OrigamiMaker
 @onready var phone := $Phone as Phone
 @onready var trappe := $Trappe as Trappe
@@ -29,6 +33,7 @@ func on_button_released(button_name: String):
 
 func add_finished_paper(finished_paper: FinishedPaper):
 	finished_papers.add_child(finished_paper)
+	origami_maker.reset()
 	phone.stop_tutorial(2)
 
 func on_next_step():

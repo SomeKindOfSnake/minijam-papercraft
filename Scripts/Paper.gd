@@ -10,7 +10,6 @@ var paper_materials: Array[ShaderMaterial] = [
 	preload("res://Materials/Paper/Paper_03.tres")
 ]
 
-@onready var game := get_tree().root.get_node("Game") as Game
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
 
 @export var paper_mesh: MeshInstance3D

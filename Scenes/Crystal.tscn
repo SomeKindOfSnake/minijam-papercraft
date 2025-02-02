@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://cdxv5llr2ailp"]
+[gd_scene load_steps=11 format=3 uid="uid://cdxv5llr2ailp"]
 
 [ext_resource type="Script" path="res://Scripts/Pickable.gd" id="1_vkv08"]
+[ext_resource type="PackedScene" uid="uid://dqiq0baphhdsr" path="res://Import/Objects/crystal.glb" id="2_ewhrj"]
 [ext_resource type="AudioStream" uid="uid://dveqn7jnnaowj" path="res://SFX/CrystalPing_01.ogg" id="2_g1ocl"]
 [ext_resource type="AudioStream" uid="uid://dldldslcubseq" path="res://SFX/CrystalPing_02.ogg" id="3_5ig7x"]
 [ext_resource type="AudioStream" uid="uid://eu70fq4rjt80" path="res://SFX/CrystalPing_03.ogg" id="4_d61g8"]
@@ -8,40 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://drxyo36k5r065" path="res://SFX/CrystalPing_05.ogg" id="6_m3kjs"]
 [ext_resource type="AudioStream" uid="uid://c0axeg2e82f48" path="res://SFX/CrystalPing_06.ogg" id="7_jvro4"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bfkfe"]
-bounce = 0.28
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kfk7b"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_vrgrt"]
-_surfaces = [{
-"aabb": AABB(-0.453485, -0.97231, -0.416515, 0.906969, 1.94462, 0.833031),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray("AAADAAEAAgAHAAMABwAEAAUABQAAAAEABgAAAAQABwABAAMABAAAAAUABgAEAAcABQABAAcABgAHAAIAAgAAAAYAAgADAAAA"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("c3UAAP9/AAA7vVNo/v8AAAAAPmz/fwAAw0Krl///AAA7vVNoAAAAAP//wJP/fwAAw0KrlwAAAACLiv///38AAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_cewkj"]
-resource_name = "crystal_Cube_001"
-_surfaces = [{
-"aabb": AABB(-0.453485, -0.97231, -0.416515, 0.906969, 1.94462, 0.833031),
-"attribute_data": PackedByteArray("/18AAP9fAAD/X////x//P/9f////H/8//9//P//f/z//nwAA/5////9f/7//H/9//1//v/9f/7//3/9//5//v/+f/7//n/+//1//P/9f/z//X/8//1//P/+f/z//n/8//5//P/+f/z//X/9//1//f/9f/3//X/9//5//f/+f/3//n/9//5//f/+f/3//n/9/"),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray("AgAPAAkADAAiABEAIQATABcAGAAAAAgAGwADABUAHgAGAA4AFAABABkAGgASAB8AFgAHACAAHQAjAA0ACwAFABwACgAQAAQA"),
-"material": SubResource("StandardMaterial3D_kfk7b"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 36,
-"vertex_data": PackedByteArray("c3UAAP9/dNJzdQAA/38M43N1AAD/fxS1c3UAAP9/rvpzdQAA/38Cr3N1AAD/f5/9O71TaP7/FNA7vVNo/v+e4ju9U2j+/3TSO71TaP7/FLUAAD5s/38CrwAAPmz/f5/9AAA+bP9/QLkAAD5s/3/xy8NCq5f//xTQw0Krl///FLXDQquX//8Cr8NCq5f//0C5O71TaAAArvo7vVNoAACf/Tu9U2gAAAzjO71TaAAArvr//8CT/3+e4v//wJP/f5/9///Ak/9/dNL//8CT/38M48NCq5cAAK76w0KrlwAArvrDQquXAACf/cNCq5cAAPHLi4r///9/FNCLiv///3+u+ouK////f57ii4r///9/n/2Liv///39AuYuK////f/HLzBOXN8ELqkRIIz/20D85U6hCUfsxPeFjipubh2yp54LME5c3SCM/9qhCUfsxPeFjzLzL07zIDsyKm5uHSCM/9qhCUfvMvMvTLsDFrM3CHZzBC6pE0D85U2yp54LNwh2czBOXN8ELqkQuwMWs0D85UzE94WO8yA7Mipubhy7AxaxsqeeCzcIdnMy8y9O8yA7M")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_vrgrt")
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2xo2e"]
+points = PackedVector3Array(-0.453485, -0.150186, -8.15392e-05, -0.0373761, -0.97231, -8.15392e-05, -0.216977, 0.179691, 0.416515, 0.0372873, 0.97231, -8.15392e-05, -0.216977, 0.179691, -0.416515, 0.216888, -0.179881, -0.416515, 0.453485, 0.149996, -8.15392e-05, 0.216888, -0.179881, 0.416434)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xy7fx"]
 random_pitch = 1.92
@@ -53,30 +22,29 @@ stream_3/stream = ExtResource("5_dain3")
 stream_4/stream = ExtResource("6_m3kjs")
 stream_5/stream = ExtResource("7_jvro4")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2xo2e"]
-points = PackedVector3Array(-0.453485, -0.150186, -8.15392e-05, -0.0373761, -0.97231, -8.15392e-05, -0.216977, 0.179691, 0.416515, 0.0372873, 0.97231, -8.15392e-05, -0.216977, 0.179691, -0.416515, 0.216888, -0.179881, -0.416515, 0.453485, 0.149996, -8.15392e-05, 0.216888, -0.179881, 0.416434)
-
-[node name="Crystal" type="RigidBody3D"]
+[node name="Crystal" type="RigidBody3D" node_paths=PackedStringArray("base_node", "base_collision_shape")]
 collision_layer = 7
 collision_mask = 6
-mass = 3.0
-physics_material_override = SubResource("PhysicsMaterial_bfkfe")
-inertia = Vector3(3, 0.5, 3)
-contact_monitor = true
-max_contacts_reported = 5
 script = ExtResource("1_vkv08")
+base_node = NodePath("crystal")
+base_collision_shape = NodePath("CollisionShape3D")
+base_scale = 1.0
+picked_scale = 0.5
+rotation_impulse_range = Vector3(100, 10, 100)
 
-[node name="crystal" type="MeshInstance3D" parent="."]
-mesh = SubResource("ArrayMesh_cewkj")
-skeleton = NodePath("")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_2xo2e")
+
+[node name="crystal" parent="." instance=ExtResource("2_ewhrj")]
+
+[node name="crystal" parent="crystal" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_xy7fx")
 volume_db = 71.856
 max_polyphony = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_2xo2e")
+[connection signal="picked_up" from="." to="AudioStreamPlayer3D" method="play"]
 
-[connection signal="body_entered" from="." to="AudioStreamPlayer3D" method="play" unbinds=1]
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[editable path="crystal"]
