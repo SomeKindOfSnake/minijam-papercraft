@@ -12,6 +12,7 @@ var default_crane_scene := preload("res://Scenes/Paper/Crane/Crane_1_Correct.tsc
 @onready var origami_holder := $OrigamiHolder as Node3D
 
 @export var crystal: Pickable
+@export var stamps: Array[Stamp] = []
 
 var current_paper: Paper = null
 var current_fold_action: FoldAction = null
@@ -26,6 +27,8 @@ func _ready() -> void:
 func start_crane() -> void:
 	current_paper = default_crane_scene.instantiate() as Paper
 	current_paper.pick_random_material()
+	current_paper.crystal = crystal
+	current_paper.stamps = stamps
 	origami_holder.add_child(current_paper)
 
 func reset() -> void:
@@ -54,9 +57,13 @@ func on_action_done() -> void:
 	if current_fold_action.switch_mesh and not current_fold_action.switch_on_click:
 		var material := current_paper.get_material()
 		current_paper.queue_free()
-		current_paper = current_fold_action.new_mesh.instantiate()
+		if current_paper.stamp_used:
+			current_paper = current_fold_action.new_mesh_if_stamped.instantiate()
+		else:
+			current_paper = current_fold_action.new_mesh.instantiate()
 		current_paper.set_material(material)
 		current_paper.crystal = crystal
+		current_paper.stamps = stamps
 		origami_holder.add_child(current_paper)
 	
 	if current_fold_action.loop_after:
@@ -75,7 +82,7 @@ func on_action_done() -> void:
 	current_paper.hide_all_handles()
 
 func _process(delta: float) -> void:
-	if origami_holder.get_child_count() > 0:
+	if origami_holder.get_child_count() > 0 and not current_paper.stamp_being_used:
 		var space_state = get_world_3d().direct_space_state
 		var mouse_position_on_screen = get_viewport().get_mouse_position()
 		var camera = get_viewport().get_camera_3d()
@@ -105,6 +112,7 @@ func _process(delta: float) -> void:
 					current_paper = current_fold_action.new_mesh.instantiate()
 					current_paper.set_material(materials)
 					current_paper.crystal = crystal
+					current_paper.stamps = stamps
 					origami_holder.add_child(current_paper)
 					current_fold_action = current_paper.fold_actions[current_fold_action.new_fold_action_index]
 				

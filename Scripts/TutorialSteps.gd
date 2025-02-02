@@ -13,6 +13,11 @@ func reset(steps: TutorialStepsResource):
 	label.text = "Step "+str(current_step)
 	texture_rect.texture = tutorial_steps_resource.steps[current_step-1]
 
+func select_step(step: int):
+	current_step = step
+	label.text = "Step "+str(current_step)
+	texture_rect.texture = tutorial_steps_resource.steps[current_step-1]
+
 func next_step():
 	current_step += 1
 	label.text = "Step "+str(current_step)

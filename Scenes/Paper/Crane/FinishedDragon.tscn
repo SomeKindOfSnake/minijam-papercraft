@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4gk72j4nwah6"]
+
+[ext_resource type="Script" path="res://Scripts/FinishedPaper.gd" id="1_hodyw"]
+[ext_resource type="PackedScene" uid="uid://bcdaabtl4ubkq" path="res://Import/Paper/Crane/Dragon_8_Correct.glb" id="2_7wc2y"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_q6yoe"]
+points = PackedVector3Array(-0.1566, -0.000882978, 0.181409, -0.0996992, 0.759628, -0.442826, -0.14446, 0.115453, -0.0669453, -0.122294, -0.000356569, -0.218769, 0.1566, -0.000882978, 0.181409, -0.155312, 0.000395445, 0.184955, -0.00643814, 0.611331, 0.394435, -0.0954071, 0.767298, -0.432188, 0.0996685, 0.759628, -0.442826, -0.00757247, 0.183285, -0.947284, -0.0117419, 0.165086, -0.945971, -0.00383222, 0.163281, -0.945314, 0.122263, -0.000356569, -0.218769, 0.155282, 0.000395445, 0.184955, 0.144429, 0.115453, -0.0669453, 0.00640748, 0.611331, 0.394435, -0.0134588, 0.191557, 0.311168, -0.0152063, 0.334816, 0.369087, 0.0953764, 0.767298, -0.432188, 0.0117113, 0.165086, -0.945971, 0.00754182, 0.183285, -0.947284, 0, 0.18148, -0.947284, 0.00380157, 0.163281, -0.945314, 0.0151756, 0.334816, 0.369087, 0.0134281, 0.191557, 0.311168)
+
+[node name="FinishedDragon" type="RigidBody3D" node_paths=PackedStringArray("paper_mesh", "animation_player", "base_node", "base_collision_shape")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.45)
+collision_layer = 6
+collision_mask = 6
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.05, 0)
+script = ExtResource("1_hodyw")
+paper_mesh = NodePath("Dragon_8_Correct/Dragon_Armature_8/Skeleton3D/Dragon_Paper_8")
+base_node_name = "DragonBase"
+respawn_node_name = "BaseReturn"
+animation_player = NodePath("Dragon_8_Correct/AnimationPlayer")
+idle_animation = "Dragon_Paper_8_Correct_Idle"
+walking_animation = "Dragon_Paper_8_Correct_Walk"
+cheering_animation = "Dragon_Paper_8_Correct_Cheer"
+base_node = NodePath("Dragon_8_Correct")
+base_collision_shape = NodePath("CollisionShape3D")
+base_scale = 0.52
+picked_scale = 0.65
+rotation_impulse_range = Vector3(10, 10, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_q6yoe")
+
+[node name="Dragon_8_Correct" parent="." instance=ExtResource("2_7wc2y")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Dragon_8_Correct/Dragon_Armature_8" index="0"]
+bones/1/position = Vector3(0.0948774, 0.262919, 0.0276165)
+bones/1/rotation = Quaternion(-0.219658, -0.746008, 0.291278, 0.557117)
+bones/2/position = Vector3(-0.0948774, 0.262919, 0.0276165)
+bones/2/rotation = Quaternion(-0.219658, 0.746008, -0.291278, 0.557117)
+bones/3/rotation = Quaternion(0.0634617, 3.56907e-07, 2.26957e-08, 0.997984)
+bones/4/rotation = Quaternion(0.639679, 1.83259e-07, 6.10046e-07, 0.768642)
+bones/5/rotation = Quaternion(-0.747876, 2.37407e-07, -2.67461e-07, 0.663839)
+bones/6/position = Vector3(0.0421736, 0.246732, 0.153685)
+bones/6/rotation = Quaternion(0.700452, 0.191522, 0.678689, -0.109851)
+bones/7/position = Vector3(0.0184943, 0.202475, -0.288328)
+bones/7/rotation = Quaternion(0.767628, 0.274952, 0.578783, -0.0126227)
+bones/8/position = Vector3(-0.0421736, 0.246732, 0.153685)
+bones/8/rotation = Quaternion(0.700452, -0.191522, -0.678689, -0.109851)
+bones/9/position = Vector3(-0.0184943, 0.202475, -0.288328)
+bones/9/rotation = Quaternion(0.767628, -0.274952, -0.578783, -0.0126227)
+
+[editable path="Dragon_8_Correct"]

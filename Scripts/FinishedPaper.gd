@@ -39,6 +39,9 @@ func set_material(material: ShaderMaterial):
 
 func mul_scale(offset: float):
 	base_node.scale *= offset
+	position *= offset
+	base_scale *= offset
+	picked_scale *= offset
 
 func turn_alive():
 	alive = true

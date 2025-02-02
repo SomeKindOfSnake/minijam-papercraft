@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TutorialStepsResource" load_steps=17 format=3 uid="uid://co1j44wxyvscy"]
+[gd_resource type="Resource" script_class="TutorialStepsResource" load_steps=18 format=3 uid="uid://co1j44wxyvscy"]
 
 [ext_resource type="Script" path="res://Scripts/Resources/TutorialStepsResource.gd" id="1_y3dxs"]
 [ext_resource type="Texture2D" uid="uid://cfljlkhohs1aj" path="res://Textures/Tutorial/Crane/000.png" id="2_kvrl2"]
@@ -16,7 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://c4tdtlw5k7h3w" path="res://Textures/Tutorial/Crane/012.png" id="14_vc6wp"]
 [ext_resource type="Texture2D" uid="uid://dohku6ykk8qth" path="res://Textures/Tutorial/Crane/013.png" id="15_jnlly"]
 [ext_resource type="Texture2D" uid="uid://8skqhnfyfi0u" path="res://Textures/Tutorial/Crane/014.png" id="16_t1atn"]
+[ext_resource type="Texture2D" uid="uid://brjbbq76nmjha" path="res://Textures/Tutorial/Crane/015.png" id="17_5sm6v"]
 
 [resource]
 script = ExtResource("1_y3dxs")
-steps = Array[Texture2D]([ExtResource("2_kvrl2"), ExtResource("3_l70w0"), ExtResource("4_c5fxi"), ExtResource("5_ycc3s"), ExtResource("6_t3oce"), ExtResource("7_qh5yc"), ExtResource("8_u5rp7"), ExtResource("9_8u786"), ExtResource("10_5wtm1"), ExtResource("11_xgr2b"), ExtResource("12_hh1ov"), ExtResource("13_ky8vi"), ExtResource("14_vc6wp"), ExtResource("15_jnlly"), ExtResource("16_t1atn"), null, null, null])
+steps = Array[Texture2D]([ExtResource("2_kvrl2"), ExtResource("3_l70w0"), ExtResource("4_c5fxi"), ExtResource("5_ycc3s"), ExtResource("6_t3oce"), ExtResource("7_qh5yc"), ExtResource("8_u5rp7"), ExtResource("9_8u786"), ExtResource("10_5wtm1"), ExtResource("11_xgr2b"), ExtResource("12_hh1ov"), ExtResource("13_ky8vi"), ExtResource("14_vc6wp"), ExtResource("15_jnlly"), ExtResource("16_t1atn"), ExtResource("17_5sm6v"), null])

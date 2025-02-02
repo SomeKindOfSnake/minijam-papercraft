@@ -14,6 +14,9 @@ var current_tween: Tween
 func start_tutorial(button_name: String):
 	tutorial.start_tutorial(button_name)
 
+func switch_to_special():
+	tutorial.switch_to_special()
+
 func stop_tutorial(delay: float):
 	var tween = create_tween()
 	tween.tween_interval(delay)

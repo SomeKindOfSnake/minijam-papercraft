@@ -11,13 +11,20 @@ var paper_materials: Array[ShaderMaterial] = [
 ]
 
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
+@onready var game := get_tree().root.get_node("Game") as Game
 
 @export var paper_mesh: MeshInstance3D
 @export var fold_actions: Array[FoldAction] = []
 @export var rune: Node3D
 @export var crystal: Pickable
 
+@export var stamps: Array[Stamp] = []
+@export var usable_stamp: int
+
 var current_step = 0
+
+var stamp_being_used = false
+var stamp_used = false
 
 func _ready() -> void:
 	hide_all_handles()
@@ -71,15 +78,26 @@ func hide_all_handles() -> void:
 			(get_node(action.handle_path) as Node3D).visible = false
 
 func _process(delta: float) -> void:
-	if rune != null and crystal != null:
+	if rune != null and crystal != null and not stamp_being_used:
 		var material = get_material()
 		if crystal.is_carried:
 			var distance = crystal.global_position.distance_squared_to(rune.global_position)
-			if distance < .5**2:
+			if distance < 3:
 				material.set_shader_parameter("RuneAmount", 1.0)
-			elif distance >= .5**2 and distance < 1**2:
+			elif distance >= 3 and distance < 4:
 				material.set_shader_parameter("RuneAmount", remap(distance, .5**2, 1**2, 1, 0))
 			else:
 				material.set_shader_parameter("RuneAmount", 0.0)
 		else:
 			material.set_shader_parameter("RuneAmount", 0.0)
+		
+		if stamps[usable_stamp].global_position.distance_squared_to(rune.global_position) < 0.5 and not stamps[usable_stamp].is_carried:
+			stamps[usable_stamp].animation_end.connect(_on_stamp_animation_ends)
+			stamps[usable_stamp].use_stamp()
+			stamp_being_used = true
+			stamp_used = true
+			game.switch_tutorial_to_special()
+
+func _on_stamp_animation_ends():
+	stamp_being_used = false
+	stamps[usable_stamp].animation_end.disconnect(_on_stamp_animation_ends)

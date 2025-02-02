@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bv5u6cmvwa4xo"]
+[gd_scene load_steps=9 format=3 uid="uid://bv5u6cmvwa4xo"]
 
 [ext_resource type="PackedScene" uid="uid://cxfn23nj7wuq6" path="res://Import/Paper/Crane/Crane_6_Correct.glb" id="1_hag6y"]
 [ext_resource type="Script" path="res://Scripts/Paper.gd" id="2_kygu3"]
 [ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_c4nys"]
 [ext_resource type="PackedScene" uid="uid://d1ogb6thjb38s" path="res://Scenes/Paper/Crane/Crane_7_Correct.tscn" id="4_08c3h"]
+[ext_resource type="Material" uid="uid://bl50o6djsw78p" path="res://Materials/Paper/Paper_01.tres" id="5_4f1ih"]
+[ext_resource type="PackedScene" uid="uid://cjg1u33rng522" path="res://Scenes/Paper/Crane/crane_7_magic_correct.tscn" id="5_rstyi"]
 
 [sub_resource type="Resource" id="Resource_ak8cd"]
 script = ExtResource("3_c4nys")
@@ -33,6 +35,7 @@ loop_after = false
 animation_loop_after = ""
 switch_mesh = true
 new_mesh = ExtResource("4_08c3h")
+new_mesh_if_stamped = ExtResource("5_rstyi")
 switch_on_click = false
 new_fold_action_index = 0
 increment_tutorial_step = false
@@ -47,6 +50,9 @@ rune = NodePath("Crane_Armature_6_Correct/Skeleton3D/Rune")
 [node name="Skeleton3D" parent="Crane_Armature_6_Correct" index="1"]
 bones/0/rotation = Quaternion(-0.382683, -7.86667e-08, 0.92388, -5.13852e-08)
 bones/1/rotation = Quaternion(-0.635085, 0.310914, 0.310914, 0.635085)
+
+[node name="Crane_Paper_6_Correct" parent="Crane_Armature_6_Correct/Skeleton3D" index="1"]
+surface_material_override/0 = ExtResource("5_4f1ih")
 
 [node name="Rune" type="Node3D" parent="Crane_Armature_6_Correct/Skeleton3D" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.393696)

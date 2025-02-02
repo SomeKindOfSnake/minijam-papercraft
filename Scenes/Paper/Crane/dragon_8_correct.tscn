@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy5hg68reva5w"]
+
+[ext_resource type="PackedScene" uid="uid://bcdaabtl4ubkq" path="res://Import/Paper/Crane/Dragon_8_Correct.glb" id="1_vjbw7"]
+[ext_resource type="Script" path="res://Scripts/Paper.gd" id="2_is4ag"]
+[ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_ioyy7"]
+[ext_resource type="PackedScene" uid="uid://c4gk72j4nwah6" path="res://Scenes/Paper/Crane/FinishedDragon.tscn" id="4_vkpi1"]
+
+[sub_resource type="Resource" id="Resource_x5e8x"]
+script = ExtResource("3_ioyy7")
+auto_play = true
+available_step = 0
+handle_position = Vector3(0, 0, 0)
+handle_path = ""
+movement = Vector3(0, 0, 0)
+animation_result = "Dragon_Paper_8_Correct_Start"
+loop_after = false
+animation_loop_after = ""
+switch_mesh = false
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = true
+finish = true
+finished_paper = ExtResource("4_vkpi1")
+
+[node name="Dragon_8_Correct" node_paths=PackedStringArray("paper_mesh") instance=ExtResource("1_vjbw7")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0.45)
+script = ExtResource("2_is4ag")
+paper_mesh = NodePath("Dragon_Armature_8/Skeleton3D/Dragon_Paper_8")
+fold_actions = Array[ExtResource("3_ioyy7")]([SubResource("Resource_x5e8x")])
+
+[node name="Skeleton3D" parent="Dragon_Armature_8" index="0"]
+bones/0/position = Vector3(1.56768e-16, 0.70602, 0.055712)
+bones/0/rotation = Quaternion(-0.999975, -1.034e-25, 2.22039e-16, 0.00713278)
+bones/1/position = Vector3(0.0948774, 0.262919, 0.0276165)
+bones/1/rotation = Quaternion(-0.219658, -0.746008, 0.291278, 0.557117)
+bones/2/position = Vector3(-0.0948774, 0.262919, 0.0276165)
+bones/2/rotation = Quaternion(-0.219658, 0.746008, -0.291278, 0.557117)
+bones/3/rotation = Quaternion(0.338468, 3.3652e-07, 1.21046e-07, 0.940978)
+bones/4/rotation = Quaternion(0.639679, 1.83259e-07, 6.10046e-07, 0.768642)
+bones/5/rotation = Quaternion(-0.734222, 2.42797e-07, -2.62578e-07, 0.678909)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/position = Vector3(0.0421736, 0.246732, 0.153685)
+bones/6/rotation = Quaternion(0.700452, 0.191522, 0.678689, -0.109851)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/position = Vector3(0.0184943, 0.202475, -0.288328)
+bones/7/rotation = Quaternion(0.767628, 0.274952, 0.578783, -0.0126227)
+bones/7/scale = Vector3(0.999999, 1, 1)
+bones/8/position = Vector3(-0.0421736, 0.246732, 0.153685)
+bones/8/rotation = Quaternion(0.700452, -0.191522, -0.678689, -0.109851)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/position = Vector3(-0.0184943, 0.202475, -0.288328)
+bones/9/rotation = Quaternion(0.767628, -0.274952, -0.578783, -0.0126227)
+bones/9/scale = Vector3(0.999999, 1, 1)

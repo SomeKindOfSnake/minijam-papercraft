@@ -19,8 +19,8 @@ walking_animation = "Crane_Paper_8_Correct_Walk"
 cheering_animation = "Crane_Paper_8_Correct_Cheer"
 base_node = NodePath("Crane_8_Correct")
 base_collision_shape = NodePath("CollisionShape3D")
-base_scale = 0.8
-picked_scale = 1.0
+base_scale = 0.52
+picked_scale = 0.65
 rotation_impulse_range = Vector3(10, 10, 10)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

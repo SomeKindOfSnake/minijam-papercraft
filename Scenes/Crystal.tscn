@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdxv5llr2ailp"]
+[gd_scene load_steps=14 format=3 uid="uid://cdxv5llr2ailp"]
 
-[ext_resource type="Script" path="res://Scripts/Pickable.gd" id="1_vkv08"]
+[ext_resource type="Script" path="res://Scripts/Crystal.gd" id="1_co44s"]
 [ext_resource type="PackedScene" uid="uid://dqiq0baphhdsr" path="res://Import/Objects/crystal.glb" id="2_ewhrj"]
 [ext_resource type="AudioStream" uid="uid://dveqn7jnnaowj" path="res://SFX/CrystalPing_01.ogg" id="2_g1ocl"]
 [ext_resource type="AudioStream" uid="uid://dldldslcubseq" path="res://SFX/CrystalPing_02.ogg" id="3_5ig7x"]
@@ -22,10 +22,71 @@ stream_3/stream = ExtResource("5_dain3")
 stream_4/stream = ExtResource("6_m3kjs")
 stream_5/stream = ExtResource("7_jvro4")
 
+[sub_resource type="Animation" id="Animation_ecbwf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("crystal:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("crystal:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mbpra"]
+resource_name = "magic_happening"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("crystal:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333, 1.53333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 2.0944, 0), Vector3(0, 7.85398, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("crystal:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.433333, 0.933333, 1.53333, 1.66667, 1.9),
+"transitions": PackedFloat32Array(1, 0.554785, 2, 0.784584, 1.86607, 0.554785, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.27192, 0), Vector3(0, 1.09446, 0), Vector3(0, 1.11201, 0), Vector3(0, 1.09446, 0), Vector3(0, 1.27192, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmveq"]
+_data = {
+"RESET": SubResource("Animation_ecbwf"),
+"magic_happening": SubResource("Animation_mbpra")
+}
+
 [node name="Crystal" type="RigidBody3D" node_paths=PackedStringArray("base_node", "base_collision_shape")]
 collision_layer = 7
 collision_mask = 6
-script = ExtResource("1_vkv08")
+script = ExtResource("1_co44s")
 base_node = NodePath("crystal")
 base_collision_shape = NodePath("CollisionShape3D")
 base_scale = 1.0
@@ -36,6 +97,7 @@ rotation_impulse_range = Vector3(100, 10, 100)
 shape = SubResource("ConvexPolygonShape3D_2xo2e")
 
 [node name="crystal" parent="." instance=ExtResource("2_ewhrj")]
+transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 0, 0, 0)
 
 [node name="crystal" parent="crystal" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -45,6 +107,12 @@ stream = SubResource("AudioStreamRandomizer_xy7fx")
 volume_db = 71.856
 max_polyphony = 5
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qmveq")
+}
+
 [connection signal="picked_up" from="." to="AudioStreamPlayer3D" method="play"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
 [editable path="crystal"]
