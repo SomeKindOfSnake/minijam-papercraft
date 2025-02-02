@@ -70,7 +70,7 @@ func get_auto_action() -> FoldAction:
 	return null
 
 func get_closest_fold_action(mouse_position: Vector3) -> FoldAction:
-	var min_distance = .06**2
+	var min_distance = .2**2
 	var min_action: FoldAction = null
 	for action in fold_actions:
 		if action.available_step == current_step and has_node(action.handle_path):

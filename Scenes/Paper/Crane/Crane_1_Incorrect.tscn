@@ -18,6 +18,7 @@ switch_mesh = false
 switch_on_click = false
 new_fold_action_index = 0
 increment_tutorial_step = false
+finish = false
 
 [node name="Crane_1_Incorrect" node_paths=PackedStringArray("paper_mesh") instance=ExtResource("1_edddo")]
 script = ExtResource("2_jxpgn")

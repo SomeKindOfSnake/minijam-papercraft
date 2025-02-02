@@ -19,4 +19,4 @@
 
 [resource]
 script = ExtResource("1_y3dxs")
-steps = Array[Texture2D]([ExtResource("2_kvrl2"), ExtResource("3_l70w0"), ExtResource("4_c5fxi"), ExtResource("5_ycc3s"), ExtResource("6_t3oce"), ExtResource("7_qh5yc"), ExtResource("8_u5rp7"), ExtResource("9_8u786"), ExtResource("10_5wtm1"), ExtResource("11_xgr2b"), ExtResource("12_hh1ov"), ExtResource("13_ky8vi"), ExtResource("14_vc6wp"), ExtResource("15_jnlly"), ExtResource("16_t1atn"), null, null, null, null, null, null])
+steps = Array[Texture2D]([ExtResource("2_kvrl2"), ExtResource("3_l70w0"), ExtResource("4_c5fxi"), ExtResource("5_ycc3s"), ExtResource("6_t3oce"), ExtResource("7_qh5yc"), ExtResource("8_u5rp7"), ExtResource("9_8u786"), ExtResource("10_5wtm1"), ExtResource("11_xgr2b"), ExtResource("12_hh1ov"), ExtResource("13_ky8vi"), ExtResource("14_vc6wp"), ExtResource("15_jnlly"), ExtResource("16_t1atn"), null, null, null])

@@ -9,9 +9,9 @@
 script = ExtResource("3_uwtmi")
 auto_play = false
 available_step = 0
-handle_position = Vector3(1.414, 0, 0)
+handle_position = Vector3(0, 0, -1.414)
 handle_path = "Crane_Armature_5_Correct/Skeleton3D/Crane_Corner_5_Correct"
-movement = Vector3(-1, 0, 1)
+movement = Vector3(0, 0, 2.828)
 animation_result = "Crane_Paper_5_Correct_Fold"
 loop_after = true
 animation_loop_after = "Crane_Paper_5_Correct_Idle"
@@ -19,6 +19,7 @@ switch_mesh = false
 switch_on_click = false
 new_fold_action_index = 0
 increment_tutorial_step = true
+finish = false
 
 [sub_resource type="Resource" id="Resource_wo23x"]
 script = ExtResource("3_uwtmi")
@@ -35,20 +36,18 @@ new_mesh = ExtResource("4_0b4ri")
 switch_on_click = false
 new_fold_action_index = 0
 increment_tutorial_step = true
+finish = false
 
 [node name="Crane_5_Correct" node_paths=PackedStringArray("paper_mesh") instance=ExtResource("1_ialdd")]
 script = ExtResource("2_wp06y")
 paper_mesh = NodePath("Crane_Armature_5_Correct/Skeleton3D/Crane_Paper_5_Correct")
 fold_actions = Array[ExtResource("3_uwtmi")]([SubResource("Resource_ankhg"), SubResource("Resource_wo23x")])
 
-[node name="Skeleton3D" parent="Crane_Armature_5_Correct" index="2"]
-bones/0/rotation = Quaternion(-0.382683, -7.86667e-08, 0.92388, -5.13852e-08)
+[node name="Skeleton3D" parent="Crane_Armature_5_Correct" index="1"]
 bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(-0.653282, 0.270598, 0.270598, 0.653281)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/rotation = Quaternion(-0.270598, 0.653282, 0.653282, 0.270598)
 bones/3/rotation = Quaternion(0.270597, 0.653281, 0.653282, -0.270599)
-bones/5/rotation = Quaternion(-0.653281, -0.270597, -0.270599, 0.653282)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.707107, 1.7143e-06, -1.47196e-06, 0.707107)
 bones/6/scale = Vector3(1, 1, 1)

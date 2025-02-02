@@ -20,6 +20,7 @@ switch_mesh = false
 switch_on_click = false
 new_fold_action_index = 0
 increment_tutorial_step = true
+finish = false
 
 [sub_resource type="Resource" id="Resource_qwqmw"]
 script = ExtResource("3_y36iu")
@@ -35,6 +36,7 @@ switch_mesh = false
 switch_on_click = false
 new_fold_action_index = 0
 increment_tutorial_step = true
+finish = false
 
 [sub_resource type="Resource" id="Resource_xj2fa"]
 script = ExtResource("3_y36iu")
@@ -51,6 +53,7 @@ new_mesh = ExtResource("4_7slbt")
 switch_on_click = false
 new_fold_action_index = 0
 increment_tutorial_step = true
+finish = false
 
 [node name="Crane_3_Correct" node_paths=PackedStringArray("paper_mesh", "rune") instance=ExtResource("1_gy7oj")]
 script = ExtResource("2_3e6kn")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b32lmf5i1dhv4"]
+
+[ext_resource type="PackedScene" uid="uid://cyl6ht3rvvrll" path="res://Import/Paper/Crane/Crane_8_Correct.glb" id="1_thcet"]
+[ext_resource type="Script" path="res://Scripts/Paper.gd" id="2_tmcq4"]
+[ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_mbh6d"]
+
+[sub_resource type="Resource" id="Resource_nni3m"]
+script = ExtResource("3_mbh6d")
+auto_play = true
+available_step = 0
+handle_position = Vector3(0, 0, 0)
+handle_path = ""
+movement = Vector3(0, 0, 0)
+animation_result = "Crane_Paper_8_Correct_Start"
+loop_after = false
+animation_loop_after = ""
+switch_mesh = false
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = true
+finish = true
+
+[node name="Crane_8_Correct" node_paths=PackedStringArray("paper_mesh") instance=ExtResource("1_thcet")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+script = ExtResource("2_tmcq4")
+paper_mesh = NodePath("Crane_Armature_8_Correct/Skeleton3D/Crane_Paper_8_Correct")
+fold_actions = Array[ExtResource("3_mbh6d")]([SubResource("Resource_nni3m")])
+
+[node name="Skeleton3D" parent="Crane_Armature_8_Correct" index="0"]
+bones/0/position = Vector3(1.56768e-16, 0.70602, 0.055712)
+bones/0/rotation = Quaternion(-0.999975, -1.034e-25, 2.22039e-16, 0.00713278)
+bones/1/rotation = Quaternion(-0.420656, -0.568374, -0.420656, 0.568374)
+bones/2/rotation = Quaternion(-0.420656, 0.568374, 0.420656, 0.568374)
+bones/3/rotation = Quaternion(0.425844, 3.2358e-07, 1.52293e-07, 0.904797)
+bones/4/rotation = Quaternion(0.758676, 7.76612e-08, 6.33089e-07, 0.651468)
+bones/5/rotation = Quaternion(-0.191168, 3.51032e-07, -6.8367e-08, 0.981557)

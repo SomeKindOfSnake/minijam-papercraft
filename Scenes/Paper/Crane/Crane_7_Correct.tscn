@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1ogb6thjb38s"]
+
+[ext_resource type="PackedScene" uid="uid://b1fhg8eq5w15" path="res://Import/Paper/Crane/Crane_7_Correct.glb" id="1_xgh2f"]
+[ext_resource type="Script" path="res://Scripts/Paper.gd" id="2_0djal"]
+[ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_sc0ve"]
+[ext_resource type="PackedScene" uid="uid://b32lmf5i1dhv4" path="res://Scenes/Paper/Crane/Crane_8_Correct.tscn" id="4_7dc3b"]
+
+[sub_resource type="Resource" id="Resource_2d01w"]
+script = ExtResource("3_sc0ve")
+auto_play = true
+available_step = 0
+handle_position = Vector3(0, 0, 0)
+handle_path = ""
+movement = Vector3(0, 0, 0)
+animation_result = "Crane_Paper_7_Correct_Start"
+loop_after = false
+animation_loop_after = ""
+switch_mesh = false
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = true
+finish = false
+
+[sub_resource type="Resource" id="Resource_y45sp"]
+script = ExtResource("3_sc0ve")
+auto_play = false
+available_step = 1
+handle_position = Vector3(0, 0, 0.3)
+handle_path = "Crane_Armature_7_Correct/Skeleton3D/Crane_Corner_7_Correct"
+movement = Vector3(0.47, 0, 0)
+animation_result = "Crane_Paper_7_Correct_Fold"
+loop_after = false
+animation_loop_after = ""
+switch_mesh = false
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = false
+finish = false
+
+[sub_resource type="Resource" id="Resource_6jqo4"]
+script = ExtResource("3_sc0ve")
+auto_play = true
+available_step = 2
+handle_position = Vector3(0, 0, 0)
+handle_path = ""
+movement = Vector3(0, 0, 0)
+animation_result = "Crane_Paper_7_Correct_Flip"
+loop_after = false
+animation_loop_after = ""
+switch_mesh = true
+new_mesh = ExtResource("4_7dc3b")
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = false
+finish = false
+
+[node name="Crane_7_Correct" node_paths=PackedStringArray("paper_mesh") instance=ExtResource("1_xgh2f")]
+script = ExtResource("2_0djal")
+paper_mesh = NodePath("Crane_Armature_7_Correct/Skeleton3D/Crane_Paper_7_Correct")
+fold_actions = Array[ExtResource("3_sc0ve")]([SubResource("Resource_2d01w"), SubResource("Resource_y45sp"), SubResource("Resource_6jqo4")])
+
+[node name="Skeleton3D" parent="Crane_Armature_7_Correct" index="0"]
+bones/0/position = Vector3(-0.00610348, 0.461798, 0.0811612)
+bones/0/rotation = Quaternion(-0.382683, -1.05553e-07, 0.92388, -5.25923e-08)
+bones/1/rotation = Quaternion(-0.637631, 0.096376, 0.0427517, 0.763093)
+
+[node name="Node3D" type="Node3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.255134, 0, 0.162273)
