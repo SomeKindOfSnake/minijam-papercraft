@@ -1,0 +1,1 @@
+class_name FinishedPaper extends RigidBody3D

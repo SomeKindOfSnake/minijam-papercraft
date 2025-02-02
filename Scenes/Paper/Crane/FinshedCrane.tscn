@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5tn14ml6qopc"]
+
+[ext_resource type="Script" path="res://Scripts/FinishedPaper.gd" id="1_bov2b"]
+[ext_resource type="PackedScene" uid="uid://cyl6ht3rvvrll" path="res://Import/Paper/Crane/Crane_8_Correct.glb" id="2_at681"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bjw5g"]
+points = PackedVector3Array(-0.00620222, 0.641358, -0.464276, -0.045, 0, -0.299, -0.189865, 0.222616, -0.283237, -0.646552, 0.359691, 0.024956, -0.00594908, 0.64356, -0.461559, 0.00607568, 0.641358, -0.464276, -0.045, 0, 0.003, 0.045, 0, -0.299, -0.646552, 0.360858, 0.0346465, -0.646552, 0.362995, 0.0297559, -0.0170878, 0.499942, 0.37988, 0.00582254, 0.64356, -0.461559, 0.646552, 0.359691, 0.024956, 0.189738, 0.222616, -0.283237, -0.045, 0, 0.267, 0.045, 0, 0.003, -0.18265, 0.223911, 0.285693, -0.00974637, 0.402252, 0.459487, -0.00961977, 0.407953, 0.460936, 0.0169612, 0.499942, 0.37988, 0.646552, 0.362995, 0.0297559, 0.646552, 0.360858, 0.0346465, 0.045, 0, 0.267, 0.00961983, 0.402252, 0.459487, 0.00949323, 0.407953, 0.460936, 0.182523, 0.223911, 0.285693)
+
+[node name="FinshedCrane" type="RigidBody3D"]
+script = ExtResource("1_bov2b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_bjw5g")
+
+[node name="Crane_8_Correct" parent="." instance=ExtResource("2_at681")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Crane_8_Correct/Crane_Armature_8_Correct" index="0"]
+bones/1/rotation = Quaternion(-0.420656, -0.568374, -0.420656, 0.568374)
+bones/2/rotation = Quaternion(-0.420656, 0.568374, 0.420656, 0.568374)
+bones/3/rotation = Quaternion(0.157452, 3.53167e-07, 5.63091e-08, 0.987527)
+bones/4/rotation = Quaternion(0.758676, 7.76612e-08, 6.33089e-07, 0.651468)
+bones/5/rotation = Quaternion(-0.211088, 3.4957e-07, -7.54909e-08, 0.977467)
+
+[editable path="Crane_8_Correct"]

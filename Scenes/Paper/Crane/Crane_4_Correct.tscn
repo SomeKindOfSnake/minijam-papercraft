@@ -79,3 +79,6 @@ fold_actions = Array[ExtResource("3_blvqh")]([SubResource("Resource_rt0f3"), Sub
 bones/0/rotation = Quaternion(1.19209e-07, -1.34276e-07, 1, 1.60069e-14)
 bones/1/position = Vector3(1.47576e-17, -0.01, -2.82827e-17)
 bones/1/rotation = Quaternion(-0.707107, 6.18172e-08, 3.66108e-08, 0.707107)
+
+[node name="Crane_Paper_4_Correct" parent="Crane_Armature_4_Correct/Skeleton3D" index="1"]
+cast_shadow = 2

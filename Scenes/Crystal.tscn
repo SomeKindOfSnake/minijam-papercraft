@@ -67,7 +67,6 @@ max_contacts_reported = 5
 script = ExtResource("2_oyfti")
 
 [node name="crystal" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_cewkj")
 skeleton = NodePath("")
 
@@ -77,7 +76,6 @@ volume_db = 71.856
 max_polyphony = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_2xo2e")
 
 [connection signal="body_entered" from="." to="AudioStreamPlayer3D" method="play" unbinds=1]

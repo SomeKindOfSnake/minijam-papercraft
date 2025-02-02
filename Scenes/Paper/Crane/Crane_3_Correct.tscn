@@ -66,6 +66,7 @@ bones/0/rotation = Quaternion(-3.55271e-15, -1.34276e-07, 1, 0)
 bones/1/position = Vector3(9.9956e-24, -0.00999999, 1.66533e-16)
 
 [node name="Crane_Paper_3_Correct" parent="Crane_Armature_3_Correct/Skeleton3D" index="1"]
+cast_shadow = 2
 surface_material_override/0 = ExtResource("3_lpye6")
 
 [node name="Marker" type="Node3D" parent="Crane_Armature_3_Correct/Skeleton3D" index="2"]
