@@ -10,7 +10,7 @@ var default_crane_scene := preload("res://Scenes/Paper/Crane/Crane_1_Correct.tsc
 
 @onready var origami_holder := $OrigamiHolder as Node3D
 
-@export var crystal: Crystal
+@export var crystal: Pickable
 
 var current_paper: Paper = null
 var current_fold_action: FoldAction = null
@@ -26,6 +26,9 @@ func start_crane() -> void:
 	current_paper = default_crane_scene.instantiate() as Paper
 	current_paper.pick_random_material()
 	origami_holder.add_child(current_paper)
+
+func reset() -> void:
+	current_paper.queue_free()
 
 func on_action_done() -> void:
 	current_paper.current_step += 1

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=4 uid="uid://cdxv5llr2ailp"]
 
+[ext_resource type="Script" path="res://Scripts/Pickable.gd" id="1_vkv08"]
 [ext_resource type="AudioStream" uid="uid://dveqn7jnnaowj" path="res://SFX/CrystalPing_01.ogg" id="2_g1ocl"]
-[ext_resource type="Script" path="res://Scripts/Crystal.gd" id="2_oyfti"]
 [ext_resource type="AudioStream" uid="uid://dldldslcubseq" path="res://SFX/CrystalPing_02.ogg" id="3_5ig7x"]
 [ext_resource type="AudioStream" uid="uid://eu70fq4rjt80" path="res://SFX/CrystalPing_03.ogg" id="4_d61g8"]
 [ext_resource type="AudioStream" uid="uid://bb0k54aja24ho" path="res://SFX/CrystalPing_04.ogg" id="5_dain3"]
@@ -64,7 +64,7 @@ physics_material_override = SubResource("PhysicsMaterial_bfkfe")
 inertia = Vector3(3, 0.5, 3)
 contact_monitor = true
 max_contacts_reported = 5
-script = ExtResource("2_oyfti")
+script = ExtResource("1_vkv08")
 
 [node name="crystal" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_cewkj")

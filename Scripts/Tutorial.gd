@@ -16,5 +16,9 @@ func start_tutorial(tutorial: String):
 		"CraneTutorialButton":
 			tutorial_steps.reset(tutorials[0])
 
+func stop_tutorial():
+	tutorial_menu.visible = true
+	tutorial_steps.visible = false
+
 func next_step():
 	tutorial_steps.next_step()

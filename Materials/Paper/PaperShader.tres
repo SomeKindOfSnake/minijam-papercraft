@@ -371,7 +371,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-224.052, 3.05017)
 modes/cull = 2
 nodes/fragment/0/position = Vector2(640, 120)
 nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_moian")

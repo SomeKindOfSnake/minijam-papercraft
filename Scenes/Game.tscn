@@ -35,18 +35,18 @@ sky_mode = 1
 [node name="OrigamiMaker" parent="." node_paths=PackedStringArray("crystal") instance=ExtResource("1_pletw")]
 crystal = NodePath("../Crystal")
 
-[node name="Phone" parent="." node_paths=PackedStringArray("phone_closer", "phone_base", "crystal") instance=ExtResource("2_1t0cd")]
+[node name="Phone" parent="." node_paths=PackedStringArray("phone_closer", "phone_base") instance=ExtResource("2_1t0cd")]
 transform = Transform3D(0.94263, 0, -0.33384, 0, 1, 0, 0.33384, 0, 0.94263, 2.72814, 0, -0.968839)
 phone_closer = NodePath("../PhoneCloser")
 phone_base = NodePath("../PhoneBase")
-crystal = NodePath("../Crystal")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.655058, 0.755579, 0, -0.755579, 0.655058, 0, 2.44342, 2.02701)
 script = ExtResource("4_2k81g")
 
-[node name="Crystal" parent="." instance=ExtResource("4_podbn")]
+[node name="Crystal" parent="." node_paths=PackedStringArray("base_place") instance=ExtResource("4_podbn")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.542, 0.309, 0.509)
+base_place = NodePath("../CrystalBase")
 
 [node name="desk" parent="." instance=ExtResource("5_ck1d6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.0395173, 0)
@@ -59,5 +59,22 @@ transform = Transform3D(0.91646, -0.337201, -0.2154, 0.078816, 0.679914, -0.7290
 
 [node name="PhoneBase" type="Node3D" parent="."]
 transform = Transform3D(0.94263, 0, -0.33384, 0, 1, 0, 0.33384, 0, 0.94263, 2.72814, 0, -0.968839)
+
+[node name="CrystalBase" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.542, 0.309, 0.509)
+
+[node name="CraneBase" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9845, 0.362589, -0.236353)
+
+[node name="FoxBase" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59317, 0.362589, 0.283462)
+
+[node name="DragonBase" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9845, 0.362589, 1.31226)
+
+[node name="NineTailedFoxBase" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59317, 0.362589, 0.847465)
+
+[node name="FinishedPapers" type="Node3D" parent="."]
 
 [connection signal="next_step" from="OrigamiMaker" to="." method="on_next_step"]

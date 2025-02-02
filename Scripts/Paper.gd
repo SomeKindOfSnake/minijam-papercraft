@@ -10,12 +10,13 @@ var paper_materials: Array[ShaderMaterial] = [
 	preload("res://Materials/Paper/Paper_03.tres")
 ]
 
+@onready var game := get_tree().root.get_node("Game") as Game
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
 
 @export var paper_mesh: MeshInstance3D
 @export var fold_actions: Array[FoldAction] = []
 @export var rune: Node3D
-@export var crystal: Crystal
+@export var crystal: Pickable
 
 var current_step = 0
 
@@ -23,21 +24,11 @@ func _ready() -> void:
 	hide_all_handles()
 	effective_scale = (get_parent() as Node3D).scale.x * unit_scale
 
-func get_material() -> Array[ShaderMaterial]:
-	if paper_mesh.get_surface_override_material_count() > 1:
-		return [
-			paper_mesh.get_surface_override_material(0),
-			paper_mesh.get_surface_override_material(1),
-		]
-	else:
-		return [
-			paper_mesh.get_surface_override_material(0),
-		]
+func get_material() -> ShaderMaterial:
+	return paper_mesh.get_surface_override_material(0)
 
-func set_material(materials: Array[ShaderMaterial]):
-	paper_mesh.set_surface_override_material(0, materials[0])
-	if paper_mesh.get_surface_override_material_count() > 1:
-		paper_mesh.set_surface_override_material(1, materials[1])
+func set_material(material: ShaderMaterial):
+	paper_mesh.set_surface_override_material(0, material)
 
 func pick_random_material() -> void:
 	var new_material := (paper_materials.pick_random() as ShaderMaterial).duplicate()
@@ -45,12 +36,6 @@ func pick_random_material() -> void:
 	new_material.set_shader_parameter("ColorParameter", base_color)
 	new_material.set_shader_parameter("RuneAmount", 0)
 	paper_mesh.set_surface_override_material(0, new_material)
-	
-	if paper_mesh.get_surface_override_material_count() > 1:
-		var new_material_back := new_material.duplicate()
-		new_material_back.set_shader_parameter("ColorParameter", base_color+Color(.2, .2, .2))
-		new_material_back.set_shader_parameter("RuneAmount", 0)
-		paper_mesh.set_surface_override_material(1, new_material_back)
 
 func seek(factor: float) -> void:
 	animation_player.seek(factor * animation_player.current_animation_length, true)
@@ -88,18 +73,14 @@ func hide_all_handles() -> void:
 
 func _process(delta: float) -> void:
 	if rune != null and crystal != null:
-		var materials = get_material()
+		var material = get_material()
 		if crystal.is_carried:
 			var distance = crystal.global_position.distance_squared_to(rune.global_position)
 			if distance < .5**2:
-				materials[0].set_shader_parameter("RuneAmount", 1.0)
-				#materials[1].set_shader_parameter("RuneAmount", 1.0)
+				material.set_shader_parameter("RuneAmount", 1.0)
 			elif distance >= .5**2 and distance < 1**2:
-				materials[0].set_shader_parameter("RuneAmount", remap(distance, .5**2, 1**2, 1, 0))
-				#materials[1].set_shader_parameter("RuneAmount", remap(distance, .5**2, 1**2, 1, 0))
+				material.set_shader_parameter("RuneAmount", remap(distance, .5**2, 1**2, 1, 0))
 			else:
-				materials[0].set_shader_parameter("RuneAmount", 0.0)
-				#materials[1].set_shader_parameter("RuneAmount", 0.0)
+				material.set_shader_parameter("RuneAmount", 0.0)
 		else:
-			materials[0].set_shader_parameter("RuneAmount", 0.0)
-			#materials[1].set_shader_parameter("RuneAmount", 0.0)
+			material.set_shader_parameter("RuneAmount", 0.0)
