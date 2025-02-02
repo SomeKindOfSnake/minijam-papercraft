@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://do043h0mdaybu"]
+[gd_scene load_steps=9 format=3 uid="uid://do043h0mdaybu"]
 
 [ext_resource type="PackedScene" uid="uid://5xtyc7ecatra" path="res://Import/Paper/Crane/Crane_4_Correct.glb" id="1_egjly"]
 [ext_resource type="Script" path="res://Scripts/Paper.gd" id="2_0ou2t"]
 [ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_blvqh"]
+[ext_resource type="PackedScene" uid="uid://cg0buyn4rus16" path="res://Scenes/Paper/Crane/Crane_5_Correct.tscn" id="4_8jmbk"]
 
 [sub_resource type="Resource" id="Resource_rt0f3"]
 script = ExtResource("3_blvqh")
@@ -60,6 +61,7 @@ animation_result = "Crane_Paper_4_Correct_Prep"
 loop_after = false
 animation_loop_after = ""
 switch_mesh = true
+new_mesh = ExtResource("4_8jmbk")
 switch_on_click = false
 new_fold_action_index = 0
 increment_tutorial_step = true

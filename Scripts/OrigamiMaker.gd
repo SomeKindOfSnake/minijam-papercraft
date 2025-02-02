@@ -4,6 +4,8 @@ signal next_step()
 
 const unit_scale = .54
 
+var effective_scale = 1
+
 var default_crane_scene := preload("res://Scenes/Paper/Crane/Crane_1_Correct.tscn") as PackedScene
 
 @onready var origami_holder := $OrigamiHolder as Node3D
@@ -16,6 +18,9 @@ var current_fold_action: FoldAction = null
 var progression = 0.0
 
 var left_mouse_button_pressed = false
+
+func _ready() -> void:
+	effective_scale = origami_holder.scale.x * unit_scale
 
 func start_crane() -> void:
 	current_paper = default_crane_scene.instantiate() as Paper
@@ -98,8 +103,8 @@ func _process(delta: float) -> void:
 		
 		if result:
 			if left_mouse_button_pressed and current_fold_action != null and not current_fold_action.auto_play:
-				var selected_corner_to_mouse = mouse_position-current_fold_action.handle_position*unit_scale
-				progression = selected_corner_to_mouse.dot(current_fold_action.movement.normalized())/(current_fold_action.movement.length()*unit_scale)
+				var selected_corner_to_mouse = mouse_position-current_fold_action.handle_position*effective_scale
+				progression = selected_corner_to_mouse.dot(current_fold_action.movement.normalized())/(current_fold_action.movement.length()*effective_scale)
 				current_paper.seek(progression)
 				if progression >= 1:
 					progression = 0

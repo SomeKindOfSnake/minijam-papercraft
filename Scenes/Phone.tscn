@@ -74,12 +74,13 @@ shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/texture_albedo = SubResource("ViewportTexture_74507")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vk64x"]
-size = Vector3(1.84967, 0, 3.56929)
+size = Vector3(1.2887, 0, 2.48486)
 
-[node name="phone" instance=ExtResource("1_r1s5a")]
+[node name="Phone" instance=ExtResource("1_r1s5a")]
 script = ExtResource("2_raik2")
 
 [node name="Cube" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_4rint")
 surface_material_override/1 = SubResource("ShaderMaterial_6g3h3")
 
@@ -99,7 +100,7 @@ script = ExtResource("4_351l0")
 sub_viewport = NodePath("../SubViewport")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15527e-05, 0.0768281, -0.000205994)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00429159, 0.0768281, 0.00115973)
 shape = SubResource("BoxShape3D_vk64x")
 
 [connection signal="mouse_exited" from="StaticBody3D" to="StaticBody3D" method="_on_mouse_exited"]
