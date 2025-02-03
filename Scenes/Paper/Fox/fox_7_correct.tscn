@@ -45,3 +45,10 @@ fold_actions = Array[ExtResource("3_nvq28")]([SubResource("Resource_uk6rl"), Sub
 
 [node name="Node3D" type="Node3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.266532)
+
+[node name="Fox_Crease_7_Correct" parent="Fox_Armature_7_Correct" index="0"]
+visible = false
+
+[node name="Skeleton3D" parent="Fox_Armature_7_Correct" index="1"]
+bones/1/rotation = Quaternion(-0.499075, 0.500923, 0.500923, 0.499075)
+bones/3/rotation = Quaternion(-7.96098e-05, -0.698192, 0.715911, -7.55432e-05)

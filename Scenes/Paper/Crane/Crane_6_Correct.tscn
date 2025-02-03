@@ -47,6 +47,9 @@ paper_mesh = NodePath("Crane_Armature_6_Correct/Skeleton3D/Crane_Paper_6_Correct
 fold_actions = Array[ExtResource("3_c4nys")]([SubResource("Resource_ak8cd"), SubResource("Resource_7nptb")])
 rune = NodePath("Crane_Armature_6_Correct/Skeleton3D/Rune")
 
+[node name="Crane_Crease_6_Correct" parent="Crane_Armature_6_Correct" index="0"]
+visible = false
+
 [node name="Skeleton3D" parent="Crane_Armature_6_Correct" index="1"]
 bones/0/rotation = Quaternion(-0.382683, -7.86667e-08, 0.92388, -5.13852e-08)
 bones/1/rotation = Quaternion(-0.635085, 0.310914, 0.310914, 0.635085)
