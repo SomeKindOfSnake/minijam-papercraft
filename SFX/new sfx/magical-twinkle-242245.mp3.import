@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dls777eidpbe7"
+path="res://.godot/imported/magical-twinkle-242245.mp3-64f767959962181245271ebfad56fc58.mp3str"
+
+[deps]
+
+source_file="res://SFX/new sfx/magical-twinkle-242245.mp3"
+dest_files=["res://.godot/imported/magical-twinkle-242245.mp3-64f767959962181245271ebfad56fc58.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

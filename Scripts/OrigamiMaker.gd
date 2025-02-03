@@ -11,6 +11,7 @@ var default_fox_scene := preload("res://Scenes/Paper/Fox/fox_1_correct.tscn") as
 
 @onready var game := get_tree().root.get_node("Game") as Game
 @onready var origami_holder := $OrigamiHolder as Node3D
+@onready var audio_stream_player := $AudioStreamPlayer3D as AudioStreamPlayer3D
 
 @export var crystal: Pickable
 @export var stamps: Array[Stamp] = []
@@ -31,6 +32,7 @@ func start_crane() -> void:
 	current_paper.crystal = crystal
 	current_paper.stamps = stamps
 	origami_holder.add_child(current_paper)
+	audio_stream_player.play()
 
 func start_fox() -> void:
 	current_paper = default_fox_scene.instantiate() as Paper
@@ -38,6 +40,7 @@ func start_fox() -> void:
 	current_paper.crystal = crystal
 	current_paper.stamps = stamps
 	origami_holder.add_child(current_paper)
+	audio_stream_player.play()
 
 func reset() -> void:
 	current_paper = null
@@ -113,6 +116,8 @@ func _process(delta: float) -> void:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not left_mouse_button_pressed:
 			left_mouse_button_pressed = true
 			if current_fold_action != null and not current_fold_action.auto_play:
+				
+				audio_stream_player.play()
 				
 				if current_fold_action.switch_mesh and current_fold_action.switch_on_click:
 					var materials := current_paper.get_material()

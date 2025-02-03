@@ -1,7 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://cs3n2ls5bfmiw"]
+[gd_scene load_steps=16 format=4 uid="uid://cs3n2ls5bfmiw"]
 
 [ext_resource type="Script" path="res://Scripts/FinishedPaper.gd" id="1_bdeo0"]
 [ext_resource type="PackedScene" uid="uid://bmsk5a3axxtvn" path="res://Import/Paper/Crane/Fox_8Magic_Correct.glb" id="2_hl7e4"]
+[ext_resource type="AudioStream" uid="uid://dhbee16hphy62" path="res://SFX/new sfx/squeek_01.ogg" id="3_s3jpu"]
+[ext_resource type="AudioStream" uid="uid://pftmdmgfvfa3" path="res://SFX/new sfx/squeek_02.ogg" id="4_kjkar"]
+[ext_resource type="AudioStream" uid="uid://beqqtbf7y02hm" path="res://SFX/new sfx/squeek_03.ogg" id="5_4388h"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8chmr"]
 points = PackedVector3Array(-0.0420189, -0.00210452, 0.0787692, 0.0419682, -0.00210452, 0.0787692, -0.0443504, -0.00188184, 0.0792809, -0.0286884, -0.00121378, -0.100827, -0.0263061, -0.00132512, -0.100973, -0.0238732, -0.00143646, -0.101046, 0.0442998, -0.00188184, 0.0792809, 0.0238225, -0.00143646, -0.101046, 0.0262555, -0.00132512, -0.100973, 0.0286377, -0.00121378, -0.100827, -0.0467327, -0.00160348, 0.0798657, -0.257283, 0.282655, -0.109233, -0.257232, 0.283101, -0.110037, -0.256878, 0.283324, -0.110914, -0.126107, 0.235112, -0.189565, -0.123421, 0.23617, -0.192415, -0.120836, 0.237562, -0.19512, -0.00430831, 0.236615, -0.251623, -0.0271171, 0.0023492, -0.103458, -0.0262048, 0.00212652, -0.103458, 0.046682, -0.00160348, 0.0798657, 0.0261541, 0.00212652, -0.103458, 0.0270664, 0.0023492, -0.103458, 0.00425765, 0.236615, -0.251623, 0.120785, 0.237562, -0.19512, 0.12337, 0.23617, -0.192415, 0.126057, 0.235112, -0.189565, 0.256827, 0.283324, -0.110914, 0.257182, 0.283101, -0.110037, 0.257232, 0.282655, -0.109233, -0.00993448, 0.302308, 0.391838, -0.258905, 0.286107, -0.106601, -0.258398, 0.286998, -0.108794, -0.257841, 0.287833, -0.110987, -0.244764, 0.447555, -0.213686, -0.243192, 0.448278, -0.215294, -0.00136852, 0.558675, -0.35476, -0.000202745, 0.236337, -0.251623, -0.0252924, 0.00223786, -0.103531, 0.00988382, 0.302308, 0.391838, 0.258905, 0.286107, -0.106601, 0.0252417, 0.00223786, -0.103531, 0.00131786, 0.558675, -0.35476, 0.243142, 0.448278, -0.215294, 0.244713, 0.447555, -0.213686, 0.25779, 0.287833, -0.110987, -0.113588, 0.50395, 0.160856, -0.246943, 0.452509, -0.210616, -0.244105, 0.448167, -0.21449, -0.00319323, 0.566636, -0.353079, -0.242686, 0.454458, -0.215075, -5.06938e-05, 0.559009, -0.354834, 0.113537, 0.50395, 0.160856, 0.246893, 0.452509, -0.210616, 0.00314254, 0.566636, -0.353079, 0.242635, 0.454458, -0.215075, 0.244054, 0.448167, -0.21449, -0.244814, 0.453512, -0.212882, 0.244764, 0.453512, -0.212882)
@@ -792,6 +795,12 @@ _data = {
 "Fox_Paper_8Magic_Correct_Walk": SubResource("Animation_wjt7h")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vs0jg"]
+streams_count = 3
+stream_0/stream = ExtResource("3_s3jpu")
+stream_1/stream = ExtResource("4_kjkar")
+stream_2/stream = ExtResource("5_4388h")
+
 [node name="MagicFoxFinished" type="RigidBody3D" node_paths=PackedStringArray("paper_mesh", "animation_player", "base_node", "base_collision_shape")]
 collision_layer = 6
 collision_mask = 6
@@ -818,6 +827,23 @@ shape = SubResource("ConvexPolygonShape3D_8chmr")
 [node name="Fox_8Magic_Correct" parent="." instance=ExtResource("2_hl7e4")]
 transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
 
+[node name="Skeleton3D" parent="Fox_8Magic_Correct/Fox_Armature_8Magic" index="0"]
+bones/2/rotation = Quaternion(-0.0288219, -0.4427, 0.832896, -0.330862)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(0.0288205, -0.4427, 0.832896, 0.330862)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(-0.27245, 3.44099e-07, -9.74358e-08, 0.96217)
+bones/6/scale = Vector3(1, 1, 1)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(0.999165, 0.0405693, -0.000594089, -0.00486231)
+bones/9/scale = Vector3(1.00001, 1, 1)
+bones/10/rotation = Quaternion(0.996148, 0.0200145, -0.00589012, -0.0851723)
+bones/10/scale = Vector3(1, 1, 0.999994)
+bones/11/rotation = Quaternion(0.999165, -0.0405693, 0.000594089, -0.00486231)
+bones/11/scale = Vector3(1.00001, 1, 1)
+bones/12/rotation = Quaternion(0.996148, -0.0200145, 0.00589012, -0.0851723)
+bones/12/scale = Vector3(1, 1, 0.999994)
+
 [node name="Fox_Paper_8Magic" parent="Fox_8Magic_Correct/Fox_Armature_8Magic/Skeleton3D" index="0"]
 mesh = SubResource("ArrayMesh_dncn3")
 skin = SubResource("Skin_q2out")
@@ -826,5 +852,8 @@ skin = SubResource("Skin_q2out")
 libraries = {
 "": SubResource("AnimationLibrary_848ti")
 }
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_vs0jg")
 
 [editable path="Fox_8Magic_Correct"]

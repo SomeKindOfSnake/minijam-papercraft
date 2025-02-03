@@ -1,6 +1,7 @@
 class_name Game extends Node3D
 
 signal all_placed
+signal unlock_trapp
 
 @onready var origami_maker := $OrigamiMaker as OrigamiMaker
 @onready var phone := $Phone as Phone
@@ -32,6 +33,7 @@ func _process(delta: float) -> void:
 	):
 		magic_open = true
 		crystal.on_magic_happens()
+		unlock_trapp.emit()
 	
 	if (
 		crane_base.current_pickable and

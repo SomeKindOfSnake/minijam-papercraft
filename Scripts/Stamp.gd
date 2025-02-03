@@ -15,6 +15,7 @@ func use_stamp():
 		used = true
 		var tween = create_tween()
 		tween.tween_interval(1.0)
+		$AudioStreamPlayer3D2.play()
 		tween.tween_property(self, "linear_velocity", Vector3.DOWN*.5, .1)
 		tween.play()
 

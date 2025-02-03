@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://pftmdmgfvfa3"
+path="res://.godot/imported/squeek_02.ogg-34b3a8a9600ce0b7e5bf809997d305ad.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/new sfx/squeek_02.ogg"
+dest_files=["res://.godot/imported/squeek_02.ogg-34b3a8a9600ce0b7e5bf809997d305ad.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

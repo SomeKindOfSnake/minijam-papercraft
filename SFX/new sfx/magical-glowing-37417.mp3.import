@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c60faotshakos"
+path="res://.godot/imported/magical-glowing-37417.mp3-8be600f1f5c1892bbaad3e47c0bf6640.mp3str"
+
+[deps]
+
+source_file="res://SFX/new sfx/magical-glowing-37417.mp3"
+dest_files=["res://.godot/imported/magical-glowing-37417.mp3-8be600f1f5c1892bbaad3e47c0bf6640.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

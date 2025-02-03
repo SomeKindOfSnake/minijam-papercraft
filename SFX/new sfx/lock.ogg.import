@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c2yttefr40f4m"
+path="res://.godot/imported/lock.ogg-38cc506a46c463ef13fa40a195c0506c.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/new sfx/lock.ogg"
+dest_files=["res://.godot/imported/lock.ogg-38cc506a46c463ef13fa40a195c0506c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

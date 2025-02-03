@@ -55,8 +55,11 @@ func turn_alive():
 	tween.tween_property(self, "rotation", Vector3(0, current_angle+angle_random_difference, 0), 1.5*abs(angle_random_difference/PI)).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.play()
 	tween = create_tween()
-	tween.tween_interval(randf_range(0.0, 1.0))
-	tween.tween_callback(func(): animation_player.play(cheering_animation))
+	tween.tween_interval(randf_range(1.0, 6.0))
+	tween.tween_callback(func(): 
+		animation_player.play(cheering_animation)
+		$AudioStreamPlayer3D.play()
+	)
 	tween.play()
 
 func on_animation_done(animation_name: StringName):
