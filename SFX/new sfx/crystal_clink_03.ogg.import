@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cmgw0y1vsnjyq"
+path="res://.godot/imported/crystal_clink_03.ogg-31124fba3846d48c4b69136082f3f90e.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/new sfx/crystal_clink_03.ogg"
+dest_files=["res://.godot/imported/crystal_clink_03.ogg-31124fba3846d48c4b69136082f3f90e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
