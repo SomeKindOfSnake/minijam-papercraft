@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjfjjhtdovpg6"]
+[gd_scene load_steps=9 format=3 uid="uid://bjfjjhtdovpg6"]
 
 [ext_resource type="Script" path="res://Scripts/Paper.gd" id="1_w4te2"]
 [ext_resource type="PackedScene" uid="uid://bgqurcytyud7r" path="res://Import/Paper/Crane/Crane_1_Correct.glb" id="2_m4eb5"]
 [ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_fwais"]
-[ext_resource type="PackedScene" uid="uid://cih81q7obuhpw" path="res://Scenes/Paper/Crane/Crane_1_Incorrect.tscn" id="4_7jj5c"]
 [ext_resource type="PackedScene" uid="uid://b6dwojgmji5iq" path="res://Scenes/Paper/Crane/Crane_2_Correct.tscn" id="5_cyjhk"]
 [ext_resource type="Material" uid="uid://bl50o6djsw78p" path="res://Materials/Paper/Paper_01.tres" id="6_ba5di"]
 
@@ -21,23 +20,6 @@ switch_mesh = false
 switch_on_click = false
 new_fold_action_index = 0
 increment_tutorial_step = true
-finish = false
-
-[sub_resource type="Resource" id="Resource_yixol"]
-script = ExtResource("3_fwais")
-auto_play = false
-available_step = 0
-handle_position = Vector3(0, 0, -1)
-handle_path = "Crane_Armature_1_Correct/Crane_Edge_1_Incorrect_A"
-movement = Vector3(0, 0, 2)
-animation_result = ""
-loop_after = false
-animation_loop_after = ""
-switch_mesh = true
-new_mesh = ExtResource("4_7jj5c")
-switch_on_click = true
-new_fold_action_index = 0
-increment_tutorial_step = false
 finish = false
 
 [sub_resource type="Resource" id="Resource_gh7en"]
@@ -76,9 +58,12 @@ finish = false
 [node name="Crane_1_Correct" node_paths=PackedStringArray("paper_mesh") instance=ExtResource("2_m4eb5")]
 script = ExtResource("1_w4te2")
 paper_mesh = NodePath("Crane_Armature_1_Correct/Skeleton3D/Crane_Paper_1_Correct")
-fold_actions = Array[ExtResource("3_fwais")]([SubResource("Resource_dgtox"), SubResource("Resource_yixol"), SubResource("Resource_gh7en"), SubResource("Resource_xsypt")])
+fold_actions = Array[ExtResource("3_fwais")]([SubResource("Resource_dgtox"), SubResource("Resource_gh7en"), SubResource("Resource_xsypt")])
 
 [node name="Crane_Crease_1_Correct" parent="Crane_Armature_1_Correct" index="0"]
+visible = false
+
+[node name="Crane_Edge_1_Incorrect_A" parent="Crane_Armature_1_Correct" index="2"]
 visible = false
 
 [node name="Skeleton3D" parent="Crane_Armature_1_Correct" index="3"]
