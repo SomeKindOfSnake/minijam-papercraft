@@ -192,6 +192,7 @@ stream = SubResource("AudioStreamRandomizer_l7erc")
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("26_5yvm4")
+volume_db = 5.0
 
 [node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("27_vpt3j")
@@ -200,10 +201,10 @@ stream = ExtResource("27_vpt3j")
 stream = ExtResource("28_ux7km")
 
 [connection signal="all_placed" from="." to="AudioStreamPlayer3D4" method="play"]
-[connection signal="unlock_trapp" from="." to="AudioStreamPlayer3D2" method="play"]
-[connection signal="unlock_trapp" from="." to="AudioStreamPlayer3D3" method="play"]
 [connection signal="next_step" from="OrigamiMaker" to="." method="on_next_step"]
 [connection signal="magic_stops" from="Crystal" to="." method="_on_crystal_magic_stops"]
+[connection signal="trap_open" from="Trappe" to="AudioStreamPlayer3D2" method="play"]
+[connection signal="trap_open" from="Trappe" to="AudioStreamPlayer3D3" method="play"]
 [connection signal="base_requested" from="CraneBase" to="AudioStreamPlayer3D" method="play"]
 [connection signal="base_requested" from="FoxBase" to="AudioStreamPlayer3D" method="play"]
 [connection signal="base_requested" from="DragonBase" to="AudioStreamPlayer3D" method="play"]
