@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="TutorialStepsResource" load_steps=18 format=3 uid="uid://bl0nq6dydhn3w"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/TutorialStepsResource.gd" id="1_l5is7"]
+[ext_resource type="Texture2D" uid="uid://cfljlkhohs1aj" path="res://Textures/Tutorial/Crane/000.png" id="2_4i3e6"]
+[ext_resource type="Texture2D" uid="uid://b1s0rlgh3t1i2" path="res://Textures/Tutorial/Crane/001.png" id="3_vqjpy"]
+[ext_resource type="Texture2D" uid="uid://bfwxhxnmxi5xj" path="res://Textures/Tutorial/Crane/002.png" id="4_qfp1x"]
+[ext_resource type="Texture2D" uid="uid://8dfcq17rukjs" path="res://Textures/Tutorial/Crane/003.png" id="5_17nul"]
+[ext_resource type="Texture2D" uid="uid://ctrq584q4gdj2" path="res://Textures/Tutorial/Crane/004.png" id="6_a88g8"]
+[ext_resource type="Texture2D" uid="uid://blhp81uvld8q3" path="res://Textures/Tutorial/Crane/005.png" id="7_jcos0"]
+[ext_resource type="Texture2D" uid="uid://wucq7ecdlsvn" path="res://Textures/Tutorial/Crane/006.png" id="8_nyt47"]
+[ext_resource type="Texture2D" uid="uid://c84syegdtwwa3" path="res://Textures/Tutorial/Crane/007.png" id="9_pp2dn"]
+[ext_resource type="Texture2D" uid="uid://dc1scv1e46bs2" path="res://Textures/Tutorial/Crane/008.png" id="10_427as"]
+[ext_resource type="Texture2D" uid="uid://bmadac8s1xsai" path="res://Textures/Tutorial/Crane/009.png" id="11_t4oyw"]
+[ext_resource type="Texture2D" uid="uid://w6qbc7tp22ek" path="res://Textures/Tutorial/Crane/010.png" id="12_jm8pm"]
+[ext_resource type="Texture2D" uid="uid://bdjgc7b1hcyq8" path="res://Textures/Tutorial/Crane/011.png" id="13_qs71u"]
+[ext_resource type="Texture2D" uid="uid://c4tdtlw5k7h3w" path="res://Textures/Tutorial/Crane/012.png" id="14_6asuw"]
+[ext_resource type="Texture2D" uid="uid://dohku6ykk8qth" path="res://Textures/Tutorial/Crane/013.png" id="15_dc57l"]
+[ext_resource type="Texture2D" uid="uid://8skqhnfyfi0u" path="res://Textures/Tutorial/Crane/014.png" id="16_ic8si"]
+[ext_resource type="Texture2D" uid="uid://brjbbq76nmjha" path="res://Textures/Tutorial/Crane/015.png" id="17_klwf0"]
+
+[resource]
+script = ExtResource("1_l5is7")
+steps = Array[Texture2D]([ExtResource("2_4i3e6"), ExtResource("3_vqjpy"), ExtResource("4_qfp1x"), ExtResource("5_17nul"), ExtResource("6_a88g8"), ExtResource("7_jcos0"), ExtResource("8_nyt47"), ExtResource("9_pp2dn"), ExtResource("10_427as"), ExtResource("11_t4oyw"), ExtResource("12_jm8pm"), ExtResource("13_qs71u"), ExtResource("14_6asuw"), ExtResource("15_dc57l"), ExtResource("16_ic8si"), ExtResource("17_klwf0"), null, null, null, null, null])

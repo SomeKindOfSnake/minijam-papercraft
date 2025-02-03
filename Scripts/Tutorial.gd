@@ -21,6 +21,10 @@ func switch_to_special():
 				var previous_step = tutorial_steps.current_step
 				tutorial_steps.reset(special_tutorial[0])
 				tutorial_steps.select_step(previous_step)
+			"FoxTutorialButton":
+				var previous_step = tutorial_steps.current_step
+				tutorial_steps.reset(special_tutorial[1])
+				tutorial_steps.select_step(previous_step)
 
 func start_tutorial(tutorial: String):
 	special = false
@@ -30,6 +34,8 @@ func start_tutorial(tutorial: String):
 	match tutorial:
 		"CraneTutorialButton":
 			tutorial_steps.reset(tutorials[0])
+		"FoxTutorialButton":
+			tutorial_steps.reset(tutorials[1])
 
 func stop_tutorial():
 	tutorial_menu.visible = true

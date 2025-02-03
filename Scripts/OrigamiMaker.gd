@@ -7,6 +7,7 @@ const unit_scale = .54
 var effective_scale = 1
 
 var default_crane_scene := preload("res://Scenes/Paper/Crane/Crane_1_Correct.tscn") as PackedScene
+var default_fox_scene := preload("res://Scenes/Paper/Fox/fox_1_correct.tscn") as PackedScene
 
 @onready var game := get_tree().root.get_node("Game") as Game
 @onready var origami_holder := $OrigamiHolder as Node3D
@@ -26,6 +27,13 @@ func _ready() -> void:
 
 func start_crane() -> void:
 	current_paper = default_crane_scene.instantiate() as Paper
+	current_paper.pick_random_material()
+	current_paper.crystal = crystal
+	current_paper.stamps = stamps
+	origami_holder.add_child(current_paper)
+
+func start_fox() -> void:
+	current_paper = default_fox_scene.instantiate() as Paper
 	current_paper.pick_random_material()
 	current_paper.crystal = crystal
 	current_paper.stamps = stamps

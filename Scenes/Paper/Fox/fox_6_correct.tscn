@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfbs685p07dve"]
+
+[ext_resource type="PackedScene" uid="uid://cs25i3m6212w5" path="res://Import/Paper/Crane/Fox_6_Correct.glb" id="1_1d5kj"]
+[ext_resource type="Script" path="res://Scripts/Paper.gd" id="2_85oos"]
+[ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_h15ao"]
+[ext_resource type="PackedScene" uid="uid://lgfqseiv5b4r" path="res://Scenes/Paper/Fox/fox_7_correct.tscn" id="4_05mp1"]
+[ext_resource type="PackedScene" uid="uid://qu73ipp60num" path="res://Scenes/Paper/Fox/fox_8_magic_correct.tscn" id="5_j7n5m"]
+
+[sub_resource type="Resource" id="Resource_ujboc"]
+script = ExtResource("3_h15ao")
+auto_play = false
+available_step = 0
+handle_position = Vector3(1.414, 0, 0)
+handle_path = "Fox_Armature_6_Correct/Skeleton3D/Fox_Corner_6_Correct"
+movement = Vector3(-1.414, 0, 0)
+animation_result = "Fox_Paper_6_Correct_Fold"
+loop_after = true
+animation_loop_after = "Fox_Paper_6_Correct_Idle"
+switch_mesh = false
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = true
+finish = false
+
+[sub_resource type="Resource" id="Resource_afthi"]
+script = ExtResource("3_h15ao")
+auto_play = false
+available_step = 1
+handle_position = Vector3(0.535, 0, -0.587)
+handle_path = "Fox_Armature_6_Correct/Fox_Crease_6_Correct"
+movement = Vector3(0, 0, 1.461)
+animation_result = "Fox_Paper_6_Correct_Crease"
+loop_after = false
+animation_loop_after = ""
+switch_mesh = true
+new_mesh = ExtResource("4_05mp1")
+new_mesh_if_stamped = ExtResource("5_j7n5m")
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = true
+finish = false
+
+[node name="Fox_6_Correct" node_paths=PackedStringArray("paper_mesh", "rune") instance=ExtResource("1_1d5kj")]
+script = ExtResource("2_85oos")
+paper_mesh = NodePath("Fox_Armature_6_Correct/Skeleton3D/Fox_Paper_6_Correct")
+fold_actions = Array[ExtResource("3_h15ao")]([SubResource("Resource_ujboc"), SubResource("Resource_afthi")])
+rune = NodePath("Fox_Armature_6_Correct/Skeleton3D/Rune")
+usable_stamp = 1
+
+[node name="Skeleton3D" parent="Fox_Armature_6_Correct" index="1"]
+bones/0/scale = Vector3(1, 1, 1)
+bones/2/position = Vector3(-0.000829571, 0.0132131, -0.295242)
+bones/2/rotation = Quaternion(-0.707104, -0.00195295, -0.00195298, 0.707104)
+bones/3/position = Vector3(-0.000829255, 0.0132131, 0.298825)
+bones/3/rotation = Quaternion(7.52961e-05, 0.707107, 0.707107, -8.02167e-05)
+
+[node name="Rune" type="Node3D" parent="Fox_Armature_6_Correct/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00209281, 0, 0.205481)

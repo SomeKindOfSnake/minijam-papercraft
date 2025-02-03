@@ -29,6 +29,7 @@ var stamp_used = false
 func _ready() -> void:
 	hide_all_handles()
 	effective_scale = (get_parent() as Node3D).scale.x * unit_scale
+	paper_mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
 
 func get_material() -> ShaderMaterial:
 	return paper_mesh.get_surface_override_material(0)

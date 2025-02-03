@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dal0jvuichnhr"]
+
+[ext_resource type="PackedScene" uid="uid://cjgg47c3rq7kq" path="res://Import/Paper/Crane/Fox_8_Correct.glb" id="1_dbdnq"]
+[ext_resource type="Script" path="res://Scripts/Paper.gd" id="2_7op47"]
+[ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_wpjrq"]
+[ext_resource type="PackedScene" uid="uid://co1mqr30lk5u8" path="res://Scenes/Paper/Fox/FoxFinished.tscn" id="4_oc2ce"]
+
+[sub_resource type="Resource" id="Resource_ucmqj"]
+script = ExtResource("3_wpjrq")
+auto_play = true
+available_step = 0
+handle_position = Vector3(0, 0, 0)
+handle_path = ""
+movement = Vector3(0, 0, 0)
+animation_result = "Fox_Paper_8_Correct_Start"
+loop_after = false
+animation_loop_after = ""
+switch_mesh = false
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = false
+finish = true
+finished_paper = ExtResource("4_oc2ce")
+
+[node name="Fox_8_Correct" node_paths=PackedStringArray("paper_mesh") instance=ExtResource("1_dbdnq")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+script = ExtResource("2_7op47")
+paper_mesh = NodePath("Fox_Armature_8/Skeleton3D/Fox_Paper_8")
+fold_actions = Array[ExtResource("3_wpjrq")]([SubResource("Resource_ucmqj")])
+
+[node name="Skeleton3D" parent="Fox_Armature_8" index="0"]
+bones/1/rotation = Quaternion(0.818005, 4.79994e-07, 6.82597e-07, 0.575211)
+bones/2/position = Vector3(0.0224469, -0.0494838, 0.000221291)
+bones/2/rotation = Quaternion(-0.0238604, -0.437674, 0.821794, -0.364042)
+bones/3/position = Vector3(-0.0224469, -0.0494838, 0.000221263)
+bones/3/rotation = Quaternion(0.023859, -0.437675, 0.821794, 0.364041)
+bones/4/position = Vector3(-8.57646e-16, 0.0687518, -0.227862)

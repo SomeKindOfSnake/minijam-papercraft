@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://50wa2gs7vtht"]
+[gd_scene load_steps=14 format=3 uid="uid://50wa2gs7vtht"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_2w1m2"]
 [ext_resource type="PackedScene" uid="uid://bj42mfntlgc3n" path="res://Scenes/Paper/OrigamiMaker.tscn" id="1_pletw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cdxv5llr2ailp" path="res://Scenes/Crystal.tscn" id="4_podbn"]
 [ext_resource type="PackedScene" uid="uid://c4odccyo852ky" path="res://Scenes/Desk.tscn" id="5_ck1d6"]
 [ext_resource type="PackedScene" uid="uid://omoiuito5ana" path="res://Scenes/FirstRune.tscn" id="6_rgqv1"]
+[ext_resource type="PackedScene" uid="uid://b0d7tminh1wji" path="res://Scenes/SecondRune.tscn" id="7_i3gcu"]
 [ext_resource type="PackedScene" uid="uid://bto4gksou8ad8" path="res://Scenes/Trappe.tscn" id="7_m35lp"]
 [ext_resource type="Script" path="res://Scripts/PickableBase.gd" id="8_1v27y"]
 
@@ -36,7 +37,7 @@ sky_mode = 1
 
 [node name="OrigamiMaker" parent="." node_paths=PackedStringArray("crystal", "stamps") instance=ExtResource("1_pletw")]
 crystal = NodePath("../Crystal")
-stamps = [NodePath("../FirstRune")]
+stamps = [NodePath("../FirstRune"), NodePath("../SecondRune")]
 
 [node name="Phone" parent="." node_paths=PackedStringArray("phone_closer", "phone_base") instance=ExtResource("2_1t0cd")]
 transform = Transform3D(0.94263, 0, -0.33384, 0, 1, 0, 0.33384, 0, 0.94263, 2.72814, 0, -0.968839)
@@ -54,6 +55,10 @@ pickable_base = NodePath("../CrystalBase")
 [node name="FirstRune" parent="." node_paths=PackedStringArray("pickable_base") instance=ExtResource("6_rgqv1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.5217, -0.564262, -2.34913)
 pickable_base = NodePath("../StampBase1")
+
+[node name="SecondRune" parent="." node_paths=PackedStringArray("pickable_base") instance=ExtResource("7_i3gcu")]
+transform = Transform3D(0.0444214, 0, -0.999013, 0, 1, 0, 0.999013, 0, 0.0444214, -1.88055, -0.639712, -2.12734)
+pickable_base = NodePath("../StampBase2")
 
 [node name="desk" parent="." instance=ExtResource("5_ck1d6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.0395173, 0)
@@ -73,6 +78,10 @@ script = ExtResource("8_1v27y")
 
 [node name="StampBase1" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.5217, -0.564262, -2.34913)
+script = ExtResource("8_1v27y")
+
+[node name="StampBase2" type="Node3D" parent="."]
+transform = Transform3D(0.0444214, 0, -0.999013, 0, 1, 0, 0.999013, 0, 0.0444214, -1.88055, -0.639712, -2.12734)
 script = ExtResource("8_1v27y")
 
 [node name="CraneBase" type="Node3D" parent="."]

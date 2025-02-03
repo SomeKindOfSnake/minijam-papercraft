@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://ombw2atgmsiv"]
+
+[ext_resource type="PackedScene" uid="uid://b25spio54g54v" path="res://Import/Paper/Crane/Fox_5_Correct.glb" id="1_rdj2l"]
+[ext_resource type="Script" path="res://Scripts/Paper.gd" id="2_b27gy"]
+[ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_k8ijq"]
+[ext_resource type="PackedScene" uid="uid://bfbs685p07dve" path="res://Scenes/Paper/Fox/fox_6_correct.tscn" id="4_5apla"]
+
+[sub_resource type="Resource" id="Resource_klw5x"]
+script = ExtResource("3_k8ijq")
+auto_play = false
+available_step = 0
+handle_position = Vector3(0, 0, -1.414)
+handle_path = "Fox_Armature_5_Correct/Skeleton3D/Fox_Corner_5_Correct"
+movement = Vector3(0, 0, 0.707)
+animation_result = "Fox_Paper_5_Correct_Fold"
+loop_after = true
+animation_loop_after = "Fox_Paper_5_Correct_Idle"
+switch_mesh = false
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = true
+finish = false
+
+[sub_resource type="Resource" id="Resource_0pqj8"]
+script = ExtResource("3_k8ijq")
+auto_play = false
+available_step = 1
+handle_position = Vector3(-0.817, 0, -0.631)
+handle_path = "Fox_Armature_5_Correct/Skeleton3D/Fox_Corner_5_Correct"
+movement = Vector3(1.65, 0, 0)
+animation_result = "Fox_Paper_5_Correct_Creased"
+loop_after = false
+animation_loop_after = ""
+switch_mesh = true
+new_mesh = ExtResource("4_5apla")
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = true
+finish = false
+
+[node name="Fox_5_Correct" node_paths=PackedStringArray("paper_mesh") instance=ExtResource("1_rdj2l")]
+script = ExtResource("2_b27gy")
+paper_mesh = NodePath("Fox_Armature_5_Correct/Skeleton3D/Fox_Paper_5_Correct")
+fold_actions = Array[ExtResource("3_k8ijq")]([SubResource("Resource_klw5x"), SubResource("Resource_0pqj8")])
+
+[node name="Skeleton3D" parent="Fox_Armature_5_Correct" index="0"]
+bones/0/rotation = Quaternion(0, -0.382683, 0, 0.92388)
+bones/2/rotation = Quaternion(-4.90196e-12, 7.92063e-09, -0.000702301, 1)
+bones/3/rotation = Quaternion(4.98472e-12, -9.26585e-11, -0.00588216, 0.999983)

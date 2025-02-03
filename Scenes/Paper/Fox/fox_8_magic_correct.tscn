@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://qu73ipp60num"]
+
+[ext_resource type="PackedScene" uid="uid://bmsk5a3axxtvn" path="res://Import/Paper/Crane/Fox_8Magic_Correct.glb" id="1_utqc1"]
+[ext_resource type="Script" path="res://Scripts/Paper.gd" id="2_wj4hh"]
+[ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_ensi0"]
+[ext_resource type="PackedScene" uid="uid://cs3n2ls5bfmiw" path="res://Scenes/Paper/Fox/MagicFoxFinished.tscn" id="4_y5oem"]
+
+[sub_resource type="Resource" id="Resource_7khcd"]
+script = ExtResource("3_ensi0")
+auto_play = true
+available_step = 0
+handle_position = Vector3(0, 0, 0)
+handle_path = ""
+movement = Vector3(0, 0, 0)
+animation_result = "Fox_Paper_8Magic_Correct_Start"
+loop_after = false
+animation_loop_after = ""
+switch_mesh = false
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = false
+finish = true
+finished_paper = ExtResource("4_y5oem")
+
+[node name="Fox_8Magic_Correct" node_paths=PackedStringArray("paper_mesh") instance=ExtResource("1_utqc1")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+script = ExtResource("2_wj4hh")
+paper_mesh = NodePath("Fox_Armature_8Magic/Skeleton3D/Fox_Paper_8Magic")
+fold_actions = Array[ExtResource("3_ensi0")]([SubResource("Resource_7khcd")])
+
+[node name="Skeleton3D" parent="Fox_Armature_8Magic" index="0"]
+bones/1/rotation = Quaternion(0.797144, 5.03842e-07, 6.6519e-07, 0.60379)
+bones/2/position = Vector3(0.0249089, -0.0353955, -0.0186302)
+bones/2/rotation = Quaternion(-0.028822, -0.4427, 0.832896, -0.330862)
+bones/3/position = Vector3(-0.0249089, -0.0353955, -0.0186303)
+bones/3/rotation = Quaternion(0.0288205, -0.442701, 0.832896, 0.330862)
+bones/4/position = Vector3(7.19137e-15, 0.18549, -0.116858)
+bones/4/rotation = Quaternion(-0.27245, 3.44099e-07, -9.74357e-08, 0.96217)
+bones/5/position = Vector3(0.0170379, 0.167278, -0.117769)
+bones/5/rotation = Quaternion(-0.237915, -0.32245, -0.253744, 0.880362)
+bones/6/position = Vector3(0.0217084, 0.14152, -0.108791)
+bones/6/rotation = Quaternion(-0.257772, -0.466023, -0.412864, 0.738864)
+bones/7/position = Vector3(-0.0170379, 0.167278, -0.117769)
+bones/7/rotation = Quaternion(-0.237915, 0.32245, 0.253744, 0.880362)
+bones/8/position = Vector3(-0.0217084, 0.14152, -0.108791)
+bones/8/rotation = Quaternion(-0.257772, 0.466023, 0.412864, 0.738864)
+bones/9/position = Vector3(0.0327052, 0.148741, 0.0840174)
+bones/9/rotation = Quaternion(0.999165, 0.0405694, -0.000594089, -0.00486231)
+bones/10/position = Vector3(0.0209646, 0.14829, -0.0744655)
+bones/10/rotation = Quaternion(0.996148, 0.0200145, -0.00589012, -0.0851723)
+bones/11/position = Vector3(-0.0327052, 0.148741, 0.0840174)
+bones/11/rotation = Quaternion(0.999165, -0.0405694, 0.000594089, -0.00486231)
+bones/12/position = Vector3(-0.0209646, 0.14829, -0.0744655)
+bones/12/rotation = Quaternion(0.996148, -0.0200145, 0.00589012, -0.0851723)

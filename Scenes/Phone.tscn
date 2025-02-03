@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxjmb8qdf32tw"]
+[gd_scene load_steps=17 format=3 uid="uid://cxjmb8qdf32tw"]
 
 [ext_resource type="PackedScene" uid="uid://diltmty36nxh0" path="res://Import/Objects/phone.glb" id="1_r1s5a"]
 [ext_resource type="PackedScene" uid="uid://dxnw6xipd0sre" path="res://Scenes/PhoneInterface.tscn" id="2_dsc7e"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Scripts/Resources/TutorialStepsResource.gd" id="4_vrl0b"]
 [ext_resource type="Resource" uid="uid://co1j44wxyvscy" path="res://Tutorials/Crane.tres" id="5_glwo6"]
 [ext_resource type="Resource" uid="uid://c3plep8q5sxxm" path="res://Tutorials/Dragon.tres" id="6_21h6d"]
+[ext_resource type="Resource" uid="uid://bl0nq6dydhn3w" path="res://Tutorials/Fox.tres" id="6_42wsx"]
+[ext_resource type="Resource" uid="uid://cvvcs6mw57afq" path="res://Tutorials/MagicFox.tres" id="8_6jhdb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rint"]
 albedo_color = Color(0.122252, 0.122252, 0.122252, 1)
@@ -106,8 +108,8 @@ size = Vector2i(372, 714)
 
 [node name="Tutorial" parent="SubViewport" index="0" node_paths=PackedStringArray("phone_inputs_handler") instance=ExtResource("3_dvhpa")]
 phone_inputs_handler = NodePath("../../StaticBody3D")
-tutorials = Array[ExtResource("4_vrl0b")]([ExtResource("5_glwo6")])
-special_tutorial = Array[ExtResource("4_vrl0b")]([ExtResource("6_21h6d")])
+tutorials = Array[ExtResource("4_vrl0b")]([ExtResource("5_glwo6"), ExtResource("6_42wsx")])
+special_tutorial = Array[ExtResource("4_vrl0b")]([ExtResource("6_21h6d"), ExtResource("8_6jhdb")])
 
 [node name="PhoneInterface" parent="SubViewport" index="1" instance=ExtResource("2_dsc7e")]
 

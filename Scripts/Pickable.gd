@@ -22,6 +22,21 @@ var plane = Plane(Vector3.UP, Vector3(0, 1, 0))
 
 func _ready() -> void:
 	input_event.connect(_on_input_event)
+	
+	if pickable_base != null and global_position.distance_to(pickable_base.global_position) < 1 and pickable_base.request_base(self):
+		linear_velocity = Vector3.ZERO
+		angular_velocity = Vector3.ZERO
+		gravity_scale = 1
+		if respawn_base:
+			basis = respawn_base.global_basis
+			global_position = respawn_base.global_position
+		else:
+			basis = pickable_base.global_basis
+			global_position = pickable_base.global_position
+			base_node.scale = Vector3.ONE * base_scale
+			base_collision_shape.scale = Vector3.ONE * base_scale
+			in_socket = true
+		is_carried = false
 
 func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event.is_action_released("click") and not is_carried:

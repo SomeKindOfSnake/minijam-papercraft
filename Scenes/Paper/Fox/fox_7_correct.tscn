@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://lgfqseiv5b4r"]
+
+[ext_resource type="PackedScene" uid="uid://c1gqsx318b3u8" path="res://Import/Paper/Crane/Fox_7_Correct.glb" id="1_aw2a8"]
+[ext_resource type="Script" path="res://Scripts/Paper.gd" id="2_xvgsf"]
+[ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_nvq28"]
+[ext_resource type="PackedScene" uid="uid://dal0jvuichnhr" path="res://Scenes/Paper/Fox/fox_8_correct.tscn" id="4_jr7k2"]
+
+[sub_resource type="Resource" id="Resource_uk6rl"]
+script = ExtResource("3_nvq28")
+auto_play = false
+available_step = 0
+handle_position = Vector3(0, 0, -0.748)
+handle_path = "Fox_Armature_7_Correct/Skeleton3D/Fox_Corner_7_Correct"
+movement = Vector3(0, 0, 1.242)
+animation_result = "Fox_Paper_7_Correct_Fold"
+loop_after = false
+animation_loop_after = ""
+switch_mesh = false
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = true
+finish = false
+
+[sub_resource type="Resource" id="Resource_vpwn3"]
+script = ExtResource("3_nvq28")
+auto_play = true
+available_step = 1
+handle_position = Vector3(0, 0, 0)
+handle_path = ""
+movement = Vector3(0, 0, 0)
+animation_result = "Fox_Paper_7_Correct_Flip"
+loop_after = false
+animation_loop_after = ""
+switch_mesh = true
+new_mesh = ExtResource("4_jr7k2")
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = false
+finish = false
+
+[node name="Fox_7_Correct" node_paths=PackedStringArray("paper_mesh") instance=ExtResource("1_aw2a8")]
+script = ExtResource("2_xvgsf")
+paper_mesh = NodePath("Fox_Armature_7_Correct/Skeleton3D/Fox_Paper_7_Correct")
+fold_actions = Array[ExtResource("3_nvq28")]([SubResource("Resource_uk6rl"), SubResource("Resource_vpwn3")])
+
+[node name="Skeleton3D" parent="Fox_Armature_7_Correct" index="1"]
+bones/1/rotation = Quaternion(-0.499075, 0.500923, 0.500923, 0.499075)
+bones/3/rotation = Quaternion(-7.96098e-05, -0.698192, 0.715911, -7.55432e-05)
+
+[node name="Node3D" type="Node3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.266532)

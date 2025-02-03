@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0d7tminh1wji"]
+
+[ext_resource type="Script" path="res://Scripts/Stamp.gd" id="1_54a7m"]
+[ext_resource type="PackedScene" uid="uid://cc8x1mycoflkn" path="res://Import/Objects/second_rune.glb" id="2_ddvxi"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t4wsc"]
+points = PackedVector3Array(-0.0759168, 0.495359, -4.12166e-05, -0.491487, 0.0188729, -4.12166e-05, 0.0908307, 0.109659, 0.210542, 0.491487, -0.0189311, -4.12166e-05, 0.0908307, 0.109659, -0.210542, -0.090927, -0.109717, -0.210542, 0.0758205, -0.229229, -4.12166e-05, -0.090927, -0.109717, 0.210501)
+
+[node name="SecondRune" type="RigidBody3D" node_paths=PackedStringArray("base_node", "base_collision_shape")]
+collision_layer = 7
+collision_mask = 6
+script = ExtResource("1_54a7m")
+base_node = NodePath("second_rune")
+base_collision_shape = NodePath("CollisionShape3D2")
+base_scale = 1.0
+picked_scale = 1.0
+rotation_impulse_range = Vector3(10, 10, 10)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_t4wsc")
+
+[node name="second_rune" parent="." instance=ExtResource("2_ddvxi")]
+
+[node name="crystal_001" parent="second_rune" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[editable path="second_rune"]

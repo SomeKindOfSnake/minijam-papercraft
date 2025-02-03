@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 		not is_all_placed
 	):
 		is_all_placed = true
-		all_placed.emit()
+		crystal.on_magic_happens()
 
 func request_picking(pickable: Pickable) -> bool:
 	if current_pickable == null:
@@ -59,8 +59,9 @@ func request_unpicking(pickable: Pickable) -> bool:
 func on_button_released(button_name: String):
 	if button_name == "CraneTutorialButton":
 		origami_maker.start_crane()
-		phone.start_tutorial(button_name)
-		trappe.open()
+	elif button_name == "FoxTutorialButton":
+		origami_maker.start_fox()
+	phone.start_tutorial(button_name)
 
 func add_finished_paper(finished_paper: FinishedPaper):
 	finished_papers.add_child(finished_paper)
@@ -74,4 +75,7 @@ func on_next_step():
 	phone.next_step()
 
 func _on_crystal_magic_stops() -> void:
-	trappe.open()
+	if magic_open and not is_all_placed:
+		trappe.open()
+	elif magic_open and is_all_placed:
+		all_placed.emit()

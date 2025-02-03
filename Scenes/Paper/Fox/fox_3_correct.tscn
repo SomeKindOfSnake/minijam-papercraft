@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://6vfendwhfjmv"]
+
+[ext_resource type="PackedScene" uid="uid://cueyav3auaong" path="res://Import/Paper/Crane/Fox_3_Correct.glb" id="1_a75x0"]
+[ext_resource type="Script" path="res://Scripts/Paper.gd" id="2_xcsxn"]
+[ext_resource type="Script" path="res://Scripts/Resources/FoldAction.gd" id="3_abto6"]
+[ext_resource type="PackedScene" uid="uid://dtm0xphhgekbw" path="res://Scenes/Paper/Fox/fox_4_correct.tscn" id="4_1umev"]
+
+[sub_resource type="Resource" id="Resource_woc5g"]
+script = ExtResource("3_abto6")
+auto_play = false
+available_step = 0
+handle_position = Vector3(1, 0, -1)
+handle_path = "Fox_Armature_3_Correct/Skeleton3D/Fox_Corner_3_Correct"
+movement = Vector3(-2, 0, 2)
+animation_result = "Fox_Paper_3_Correct_Fold"
+loop_after = true
+animation_loop_after = "Fox_Paper_3_Correct_Idle"
+switch_mesh = false
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = true
+finish = false
+
+[sub_resource type="Resource" id="Resource_ic2x0"]
+script = ExtResource("3_abto6")
+auto_play = false
+available_step = 1
+handle_position = Vector3(-1, 0, -1)
+handle_path = "Fox_Armature_3_Correct/Fox_CreaseCorner_3_Correct"
+movement = Vector3(2, 0, 2)
+animation_result = "Fox_Paper_3_Correct_Creased"
+loop_after = false
+animation_loop_after = ""
+switch_mesh = false
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = true
+finish = false
+
+[sub_resource type="Resource" id="Resource_xkc4o"]
+script = ExtResource("3_abto6")
+auto_play = false
+available_step = 2
+handle_position = Vector3(-1, 0, 1)
+handle_path = "Fox_Armature_3_Correct/Skeleton3D/Fox_Corner_3_Correct"
+movement = Vector3(2, 0, -2)
+animation_result = "Fox_Paper_3_Correct_Finish"
+loop_after = false
+animation_loop_after = ""
+switch_mesh = true
+new_mesh = ExtResource("4_1umev")
+switch_on_click = false
+new_fold_action_index = 0
+increment_tutorial_step = true
+finish = false
+
+[node name="Fox_3_Correct" node_paths=PackedStringArray("paper_mesh") instance=ExtResource("1_a75x0")]
+script = ExtResource("2_xcsxn")
+paper_mesh = NodePath("Fox_Armature_3_Correct/Skeleton3D/Fox_Paper_3_Correct")
+fold_actions = Array[ExtResource("3_abto6")]([SubResource("Resource_woc5g"), SubResource("Resource_ic2x0"), SubResource("Resource_xkc4o")])
+
+[node name="Skeleton3D" parent="Fox_Armature_3_Correct" index="2"]
+bones/1/position = Vector3(1.96262e-17, 0.00626394, -1.96262e-17)
+bones/1/rotation = Quaternion(-0.653282, -0.270598, -0.270598, 0.653282)
