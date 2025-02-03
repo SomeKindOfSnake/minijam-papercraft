@@ -39,7 +39,14 @@ func set_material(material: ShaderMaterial):
 
 func pick_random_material() -> void:
 	var new_material := (paper_materials.pick_random() as ShaderMaterial).duplicate()
-	var base_color = Color(randf(), randf(), randf())
+	var base_color = [
+		Color("#423570"),
+		Color("#355f70"),
+		Color("#357067"),
+		Color("#3e7035"),
+		Color("#677035"),
+		Color("#705635")
+	].pick_random()
 	new_material.set_shader_parameter("ColorParameter", base_color)
 	new_material.set_shader_parameter("RuneAmount", 0)
 	paper_mesh.set_surface_override_material(0, new_material)

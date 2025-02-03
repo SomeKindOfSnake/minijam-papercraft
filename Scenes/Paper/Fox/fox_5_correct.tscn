@@ -39,11 +39,12 @@ increment_tutorial_step = true
 finish = false
 
 [node name="Fox_5_Correct" node_paths=PackedStringArray("paper_mesh") instance=ExtResource("1_rdj2l")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("2_b27gy")
 paper_mesh = NodePath("Fox_Armature_5_Correct/Skeleton3D/Fox_Paper_5_Correct")
 fold_actions = Array[ExtResource("3_k8ijq")]([SubResource("Resource_klw5x"), SubResource("Resource_0pqj8")])
 
 [node name="Skeleton3D" parent="Fox_Armature_5_Correct" index="1"]
 bones/0/rotation = Quaternion(0, -0.382683, 0, 0.92388)
-bones/2/rotation = Quaternion(0.970623, -0.000681624, -0.000168996, 0.240606)
-bones/3/rotation = Quaternion(-0.880887, 0.00518163, -0.00278397, 0.47329)
+bones/2/rotation = Quaternion(-4.90196e-12, 7.92063e-09, -0.000702301, 1)
+bones/3/rotation = Quaternion(4.98472e-12, -9.26585e-11, -0.00588216, 0.999983)

@@ -53,9 +53,9 @@ visible = false
 [node name="Skeleton3D" parent="Fox_Armature_6_Correct" index="2"]
 bones/0/scale = Vector3(1, 1, 1)
 bones/2/position = Vector3(-0.000829571, 0.0132131, -0.295242)
-bones/2/rotation = Quaternion(0.591668, -0.00222661, 0.00163412, 0.806177)
+bones/2/rotation = Quaternion(-0.707104, -0.00195295, -0.00195298, 0.707104)
 bones/3/position = Vector3(-0.000829255, 0.0132131, 0.298825)
-bones/3/rotation = Quaternion(-7.95722e-05, 0.713106, -0.701056, -7.59768e-05)
+bones/3/rotation = Quaternion(7.52961e-05, 0.707107, 0.707107, -8.02167e-05)
 
 [node name="Rune" type="Node3D" parent="Fox_Armature_6_Correct/Skeleton3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00209281, 0, 0.205481)
