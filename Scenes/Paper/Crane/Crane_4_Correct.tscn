@@ -26,7 +26,7 @@ script = ExtResource("3_blvqh")
 auto_play = false
 available_step = 1
 handle_position = Vector3(-1, 0, 0)
-handle_path = "Crane_Armature_4_Correct/Crane_Crease_4_Correct"
+handle_path = "Crane_Armature_4_Correct/Crane_EdgeStart_4_Correct"
 movement = Vector3(2, 0, 0)
 animation_result = "Crane_Paper_4_Correct_Creased"
 loop_after = false
@@ -74,6 +74,9 @@ finish = false
 script = ExtResource("2_0ou2t")
 paper_mesh = NodePath("Crane_Armature_4_Correct/Skeleton3D/Crane_Paper_4_Correct")
 fold_actions = Array[ExtResource("3_blvqh")]([SubResource("Resource_rt0f3"), SubResource("Resource_1rysp"), SubResource("Resource_f0iiq"), SubResource("Resource_4exvx")])
+
+[node name="Crane_Crease_4_Correct" parent="Crane_Armature_4_Correct" index="0"]
+visible = false
 
 [node name="Skeleton3D" parent="Crane_Armature_4_Correct" index="2"]
 bones/0/rotation = Quaternion(1.19209e-07, -1.34276e-07, 1, 1.60069e-14)

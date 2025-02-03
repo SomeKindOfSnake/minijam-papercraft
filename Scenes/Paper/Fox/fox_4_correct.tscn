@@ -59,6 +59,5 @@ script = ExtResource("2_p62vy")
 paper_mesh = NodePath("Fox_Armature_4_Correct/Skeleton3D/Fox_Paper_4_Correct")
 fold_actions = Array[ExtResource("3_4t8yt")]([SubResource("Resource_gp74d"), SubResource("Resource_ct4tb"), SubResource("Resource_ofr2a")])
 
-[node name="Skeleton3D" parent="Fox_Armature_4_Correct" index="2"]
-bones/1/position = Vector3(1.96262e-17, 0.00626394, -1.96262e-17)
-bones/1/rotation = Quaternion(-0.653282, -0.270598, -0.270598, 0.653282)
+[node name="Fox_Crease_4_Correct" parent="Fox_Armature_4_Correct" index="0"]
+visible = false
