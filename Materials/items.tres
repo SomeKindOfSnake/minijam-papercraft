@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://dv6e1xbdgsy8b"]
+
+[ext_resource type="Texture2D" uid="uid://dnmehjbai2ixs" path="res://Textures/other/desks and stuff_02_low_Items_BaseColor_sRGB.png" id="1_q6532"]
+[ext_resource type="Texture2D" uid="uid://bh1lcbiaf7ytr" path="res://Textures/other/desks and stuff_02_low_Items_Emissive_sRGB.png" id="2_adq84"]
+[ext_resource type="Texture2D" uid="uid://diqaws581lds6" path="res://Textures/other/desks and stuff_02_low_Items_Metallic_Raw.png" id="3_01rht"]
+[ext_resource type="Texture2D" uid="uid://clk3wttvbwnni" path="res://Textures/other/desks and stuff_02_low_Items_Roughness_Raw.png" id="4_1edjt"]
+[ext_resource type="Texture2D" uid="uid://c5t5oqme3qtn5" path="res://Textures/other/desks and stuff_02_low_Items_Normal_Raw.png" id="4_q6vac"]
+
+[resource]
+albedo_texture = ExtResource("1_q6532")
+metallic = 1.0
+metallic_texture = ExtResource("3_01rht")
+roughness_texture = ExtResource("4_1edjt")
+emission_enabled = true
+emission_texture = ExtResource("2_adq84")
+normal_enabled = true
+normal_texture = ExtResource("4_q6vac")
